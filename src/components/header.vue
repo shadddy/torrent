@@ -1,7 +1,7 @@
 <template>
 	<div class="header">
 		<!--PC端头部-->
-		<!--<div class="container">
+		<div class="container">
 			<el-row :gutter="1">
 				<el-col :xl="2" :xs="0">
 					<img src="../../static/img/logo.png" class="logo" />
@@ -17,7 +17,7 @@
 					<span class="registerBtn">{{$t('registerBtn')}}</span>
 				</el-col>
 			</el-row>
-		</div>-->
+		</div>
 	</div>
 </template>
 

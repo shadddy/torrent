@@ -7,5 +7,10 @@ module.exports={
 			nav4:'About'
 		}
 	},
-	registerBtn:'注册'
+	registerBtn:'注册',
+	banner:{
+		banner1:{
+			title2:'huobao'
+		}
+	}
 }
