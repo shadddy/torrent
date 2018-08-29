@@ -1,0 +1,11 @@
+module.exports={
+	header:{
+		nav_top:{
+			nav1:'SoftWare',
+			nav2:'DownLoad',
+			nav3:'zhinan',
+			nav4:'About'
+		}
+	},
+	registerBtn:'注册'
+}
