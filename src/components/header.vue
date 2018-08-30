@@ -2,21 +2,22 @@
 	<div class="header">
 		<!--PC端头部-->
 		<div class="container">
-			<el-row :gutter="1">
-				<el-col :xl="2" :xs="0">
-					<img src="../../static/img/logo.png" class="logo" />
-				</el-col>
-				<el-col :xl="6" :offset='10'>
-					<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
-						<el-menu-item v-for="(item,index) in navList" :index="item.name" :key="index" @click='Router(item.url)'>
-							{{item.name}}
-						</el-menu-item>
-					</el-menu>
-				</el-col>
-				<el-col :xl="3">
-					<span class="registerBtn">{{$t('registerBtn')}}</span>
-				</el-col>
-			</el-row>
+			<h2 class="logo" @click="Router('/')">
+				<img :src="logo"  />
+			</h2>
+			<div class="right">
+				<ul>
+					<li v-for="(item,index) in navList" @mouseenter="slideDown(index)" @mouseleave="slideUp(index)" >
+						<span @click="Router(item.url)">{{item.name}}</span>
+						<ul class="subNav">
+							<li v-for="i in item.subNav" @click="Router(i.url)">
+								{{i.name}}
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<span class="registerBtn">{{$t('registerBtn')}}</span>
+			</div>
 		</div>
 	</div>
 </template>
@@ -26,6 +27,7 @@
 		data() {
 			return {
 				activeIndex: '0',
+				logo: require('../../static/img/logo.png')
 
 			}
 		},
@@ -43,22 +45,49 @@
 					strs = '';
 				}
 				this.$router.push('/' + strs);
+	
+			},
+			func(){
+				this.$router.push('/')
+			},
+			//子导航下拉
+			slideDown(val){
+				$('.subNav').eq(val).stop().slideDown()
+			},
+			slideUp(val){
+				$('.subNav').eq(val).stop().slideUp()
 			}
+		},
+		mounted(){
+			let that=this;
 		},
 		computed: {
 			navList() {
 				return [{
 					name: this.$t("header.nav_top.nav1"),
-					url:'/'
+					url: 'software',
+					subNav: [{
+						name: this.$t("header.subNav_1.nav1"),
+						url: 'software/firstSoftPage'
+					}, {
+						name: this.$t("header.subNav_1.nav2"),
+						url: 'software/secondSoftPage'
+					}, {
+						name: this.$t("header.subNav_1.nav3"),
+						url: 'software/thirdSoftPage'
+					}, {
+						name: this.$t("header.subNav_1.nav4"),
+						url: 'software/forthSoftPage'
+					}]
 				}, {
 					name: this.$t("header.nav_top.nav2"),
-					url:'/'
+					url: '/',
 				}, {
 					name: this.$t("header.nav_top.nav3"),
-					url:'/'
+					url: '/'
 				}, {
 					name: this.$t("header.nav_top.nav4"),
-					url:'about'
+					url: 'about'
 				}]
 			}
 		}
@@ -74,12 +103,53 @@
 				margin-top: 10px;
 				width: 124px;
 				height: 52px;
+				display: inline-block;
+				cursor: pointer;
+				img {
+					width: 100%;
+					height: 100%;
+				}
 			}
-			.registerBtn {
-				border: 1px solid #808080;
-				padding: 10px 20px;
-				border-radius: 5px;
-				line-height: 75px;
+			.right {
+				display: flex;
+				float: right;
+				ul {
+					display: flex;
+					li {
+						transition: .5s;
+						-moz-transition: .5s;
+						-ms-transition: .5s;
+						-webkit-transition: .5s;
+						padding: 20px 30px;
+						cursor: pointer;
+						position: relative;
+						.subNav{
+						
+							display: none;
+							position: absolute;
+							z-index:9999;
+							background: white;
+							
+							left:5px;
+							top:70px;
+							li{
+								text-align: center;
+								display:block;
+								padding: 5px 10px;
+								
+							}
+						}
+					}
+				}
+				.registerBtn {
+					border: 1px solid #808080;
+					width: 50px;
+					text-align: center;
+					height: 40px;
+					line-height: 40px;
+					margin-top: 12px;
+					border-radius: 5px;
+				}
 			}
 		}
 	}
