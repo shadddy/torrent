@@ -25,8 +25,9 @@ p,h1,h2,h3,h4,h5,h6,ul{
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-        -webkit-padding-start:0px;
+     -webkit-padding-start:0px;
 }
+
 li{
 	list-style: none;
 }

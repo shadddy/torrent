@@ -67,7 +67,7 @@
 		<!--banner-->
 		<div class="banner-2">
 			<el-carousel height="39vw">
-				<el-carousel-item v-for="item in bannerList" :key="item">
+				<el-carousel-item v-for="(item,index) in bannerList" :key="index">
 					<img :src="item.src" />
 					<div class="content">
 						<h1>{{item.title}}</h1>
@@ -94,14 +94,43 @@
 			</div>
 
 		</div>
+		<!--iMac-->
+		<div class="iMac">
+			<div class="container">
+				<div class="content">
+					<h1>{{$t('iMac.title')}}</h1>
+					<h6>{{$t('iMac.title2')}}</h6>
+					<ul>
+						<li v-for="item in iMacList">
+							{{item.txt}}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--更多使用软件-->
+		<div class="software">
+			<div class="container">
+				<h1>{{$t('software.title')}}</h1>
+				<ul>
+					<li v-for="item in softwareList">
+						<img :src="item.img"/>
+						<p>{{item.txt}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<my-footer></my-footer>
 	</div>
 </template>
 
 <script>
 	import header from '@/components/header'
+	import footer from '@/components/footer'
 	export default {
 		components: {
-			myHeader: header
+			myHeader: header,
+			myFooter: footer
 		},
 		data() {
 			return {
@@ -169,6 +198,52 @@
 					img: require('../../static/img/plug-10.png'),
 					title: this.$t('plugin.p10.title'),
 					txt: this.$t('plugin.p10.txt')
+				}]
+			},
+			iMacList() {
+				return [{
+					txt: this.$t('iMac.txt1')
+				}, {
+					txt: this.$t('iMac.txt2')
+				}, {
+					txt: this.$t('iMac.txt3')
+				}, {
+					txt: this.$t('iMac.txt4')
+				}, {
+					txt: this.$t('iMac.txt5')
+				}, {
+					txt: this.$t('iMac.txt6')
+				}, {
+					txt: this.$t('iMac.txt7')
+				}, {
+					txt: this.$t('iMac.txt8')
+				}]
+			},
+			softwareList(){
+				return [{
+					txt:this.$t('software.txt1'),
+					img:require('../../static/img/soft-1.png')
+				},{
+					txt:this.$t('software.txt2'),
+					img:require('../../static/img/soft-2.png')
+				},{
+					txt:this.$t('software.txt3'),
+					img:require('../../static/img/soft-3.png')
+				},{
+					txt:this.$t('software.txt4'),
+					img:require('../../static/img/soft-4.png')
+				},{
+					txt:this.$t('software.txt5'),
+					img:require('../../static/img/soft-5.png')
+				},{
+					txt:this.$t('software.txt6'),
+					img:require('../../static/img/soft-6.png')
+				},{
+					txt:this.$t('software.txt7'),
+					img:require('../../static/img/soft-7.png')
+				},{
+					txt:this.$t('software.txt8'),
+					img:require('../../static/img/soft-8.png')
 				}]
 			}
 		}
@@ -339,8 +414,8 @@
 					margin: 0 auto;
 					li {
 						transition: .5s;
-						border-top: 1px solid #ccc;
-						border-right: 1px solid #ccc;
+						border-top: 1px solid #e6e6e6;
+						border-right: 1px solid #e6e6e6;
 						text-align: center;
 						width: 260px;
 						padding: 50vw/@w 0;
@@ -348,23 +423,84 @@
 							width: 60vw/@w;
 							height: 60vw/@w;
 						}
-						h3{
+						h3 {
+							margin-top: 20vw/@w;
+							font-size: 20vw/@w;
+						}
+						p {
 							margin-top: 10vw/@w;
+							font-size: 14vw/@w;
 						}
 					}
 					li:nth-of-type(1),
 					li:nth-of-type(6) {
-						border-left: 1px solid #ccc;
+						border-left: 1px solid #e6e6e6;
 					}
 					li:nth-of-type(6),
 					li:nth-of-type(7),
 					li:nth-of-type(8),
 					li:nth-of-type(9),
 					li:nth-of-type(10) {
-						border-bottom: 1px solid #ccc;
+						border-bottom: 1px solid #e6e6e6;
 					}
 					li:hover {
-						box-shadow:0px 0px 8px #888888;
+						box-shadow: 0px 0px 15px #e6e6e6;
+					}
+				}
+			}
+		}
+		.iMac {
+			width: 100%;
+			height: 1023vw/@w;
+			background-image: url(../../static/img/iMac.jpg);
+			background-size: 100% 100%;
+			position: relative;
+			overflow: hidden;
+			.container {
+				.content {
+					width: 500vw/@w;
+					margin-top: 200vw/@w;
+					h1 {
+						color: white;
+						font-size: 50vw/@w;
+						margin-bottom: 40vw/@w;
+					}
+					h6 {
+						color: #ccc;
+						font-size: 14vw/@w;
+						margin-bottom: 70vw/@w;
+					}
+					ul {
+						li {
+							background-image: url(../../static/img/checked.png);
+							background-repeat: no-repeat;
+							background-position: left;
+							padding-left: 30px;
+							color: #ccc;
+							font-size: 14px;
+							line-height: 40vw/@w;
+						}
+					}
+				}
+			}
+		}
+		.software{
+			.container{
+				padding: 100vw/@w 0;
+				h1{
+					text-align: center;
+				}
+				ul{
+					display: flex;
+					flex-wrap: wrap;
+					margin: 40vw/@w auto;
+					li{
+						text-align: center;
+						width: 325px;
+						padding: 50vw/@w 0;
+						p{
+							margin-top: 10vw/@w;
+						}
 					}
 				}
 			}

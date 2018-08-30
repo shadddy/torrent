@@ -6,9 +6,9 @@
 				<el-col :xl="2" :xs="0">
 					<img src="../../static/img/logo.png" class="logo" />
 				</el-col>
-				<el-col :xl="6" :offset='10' :md="0" :xs="0" :lg="0">
+				<el-col :xl="6" :offset='10'>
 					<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
-						<el-menu-item v-for="(item,ind) in navList" :index="item.name">
+						<el-menu-item v-for="(item,index) in navList" :index="item.name" :key="index" @click='Router(item.url)'>
 							{{item.name}}
 						</el-menu-item>
 					</el-menu>
@@ -26,14 +26,39 @@
 		data() {
 			return {
 				activeIndex: '0',
-				navList: [{
-					name: this.$t("header.nav_top.nav1")
+
+			}
+		},
+		methods: {
+			// 页面跳转
+			Router: function(str) {
+				if(str == "" || str == undefined) {
+					return false;
+				}
+				if(str == "/") {
+					str = "";
+				}
+				let strs = str;
+				if(strs == "index") {
+					strs = '';
+				}
+				this.$router.push('/' + strs);
+			}
+		},
+		computed: {
+			navList() {
+				return [{
+					name: this.$t("header.nav_top.nav1"),
+					url:'/'
 				}, {
-					name: this.$t("header.nav_top.nav2")
+					name: this.$t("header.nav_top.nav2"),
+					url:'/'
 				}, {
-					name: this.$t("header.nav_top.nav3")
+					name: this.$t("header.nav_top.nav3"),
+					url:'/'
 				}, {
-					name: this.$t("header.nav_top.nav4")
+					name: this.$t("header.nav_top.nav4"),
+					url:'about'
 				}]
 			}
 		}
