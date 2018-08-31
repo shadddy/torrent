@@ -195,6 +195,21 @@ module.exports={
 			btn1:'MT4环境下载',
 			btn2:'MT5环境下载'
 		}
+	},
+	software_3:{
+		first:{
+			title:'Squirrel Bonds 1.0',
+			title2:'新锐人群喜爱的轻松理财APP',
+			btn1:'安卓手机下载',
+			btn2:'苹果手机下载'
+		}
+	},
+	software_4:{
+		first:{
+			title:'Socialtrading Plus',
+			title2:'专业级复制投资者必备软件',
+			btn:'免费下载'
+		}
 	}
 }
 
