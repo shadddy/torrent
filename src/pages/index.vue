@@ -114,7 +114,7 @@
 				<h1>{{$t('software.title')}}</h1>
 				<ul>
 					<li v-for="item in softwareList">
-						<img :src="item.img"/>
+						<img :src="item.img" />
 						<p>{{item.txt}}</p>
 					</li>
 				</ul>
@@ -137,7 +137,20 @@
 
 			}
 		},
-
+		methods: {
+			download(url) {
+				let that = this;
+				$.ajax({
+					url: '',
+					method: "get",
+					data: {},
+					success: function(res) {
+						window.open(res.data.apkUrl);
+						console.log(res.data.apkUrl)
+					}
+				})
+			}
+		},
 		computed: {
 			bannerList() {
 				return [{
@@ -219,31 +232,31 @@
 					txt: this.$t('iMac.txt8')
 				}]
 			},
-			softwareList(){
+			softwareList() {
 				return [{
-					txt:this.$t('software.txt1'),
-					img:require('../../static/img/soft-1.png')
-				},{
-					txt:this.$t('software.txt2'),
-					img:require('../../static/img/soft-2.png')
-				},{
-					txt:this.$t('software.txt3'),
-					img:require('../../static/img/soft-3.png')
-				},{
-					txt:this.$t('software.txt4'),
-					img:require('../../static/img/soft-4.png')
-				},{
-					txt:this.$t('software.txt5'),
-					img:require('../../static/img/soft-5.png')
-				},{
-					txt:this.$t('software.txt6'),
-					img:require('../../static/img/soft-6.png')
-				},{
-					txt:this.$t('software.txt7'),
-					img:require('../../static/img/soft-7.png')
-				},{
-					txt:this.$t('software.txt8'),
-					img:require('../../static/img/soft-8.png')
+					txt: this.$t('software.txt1'),
+					img: require('../../static/img/soft-1.png')
+				}, {
+					txt: this.$t('software.txt2'),
+					img: require('../../static/img/soft-2.png')
+				}, {
+					txt: this.$t('software.txt3'),
+					img: require('../../static/img/soft-3.png')
+				}, {
+					txt: this.$t('software.txt4'),
+					img: require('../../static/img/soft-4.png')
+				}, {
+					txt: this.$t('software.txt5'),
+					img: require('../../static/img/soft-5.png')
+				}, {
+					txt: this.$t('software.txt6'),
+					img: require('../../static/img/soft-6.png')
+				}, {
+					txt: this.$t('software.txt7'),
+					img: require('../../static/img/soft-7.png')
+				}, {
+					txt: this.$t('software.txt8'),
+					img: require('../../static/img/soft-8.png')
 				}]
 			}
 		}
@@ -275,16 +288,25 @@
 					color: white;
 				}
 				.download {
+					transition: .5s;
+					-moz-transition: .5s;
+					-ms-transition: .5s;
+					-webkit-transition: .5s;
 					cursor: pointer;
 					margin-top: 20vw/@w;
 					width: 300vw/@w ;
 					height: 78vw/@w;
 					background: #f9d681;
+					border: 1px solid #f9d681;
 					color: black;
 					font-size: 20vw/@w;
 					text-align: center;
 					line-height: 78vw/@w;
 					border-radius: 20vw/@w;
+				}
+				.download:hover {
+					background: transparent;
+					color: #f9d681;
 				}
 			}
 		}
@@ -386,8 +408,13 @@
 						font-size: 14vw/@w;
 					}
 					.downloadBtn {
+						transition: .5s;
+						-moz-transition: .5s;
+						-ms-transition: .5s;
+						-webkit-transition: .5s;
 						display: inline-block;
 						background: #f9d681;
+						border: 1px solid #f9d681;
 						color: black;
 						font-size: 20vw/@w;
 						text-align: center;
@@ -395,6 +422,10 @@
 						cursor: pointer;
 						border-radius: 40px;
 						margin-top: 60vw/@w;
+					}
+					.downloadBtn:hover {
+						background: transparent;
+						color: #f9d681;
 					}
 				}
 			}
@@ -484,21 +515,21 @@
 				}
 			}
 		}
-		.software{
-			.container{
+		.software {
+			.container {
 				padding: 100vw/@w 0;
-				h1{
+				h1 {
 					text-align: center;
 				}
-				ul{
+				ul {
 					display: flex;
 					flex-wrap: wrap;
 					margin: 40vw/@w auto;
-					li{
+					li {
 						text-align: center;
 						width: 325px;
 						padding: 50vw/@w 0;
-						p{
+						p {
 							margin-top: 10vw/@w;
 						}
 					}
@@ -506,7 +537,89 @@
 			}
 		}
 	}
-	
+	@media only screen and (max-width:768px){
+		.index{
+			.banner-1{
+				padding-top: 180vw/@w;
+				padding-left:100vw/@w;
+				.content{
+					width: 800vw/@w;
+					h1{
+						font-size: 20px;
+					}
+					h2{
+						font-size: 10px;
+					}
+					.download{
+						width: 100px;
+						height: 20px;
+					}
+				}
+			}
+			.custom{
+				.container{
+					.custom-item{
+						
+					}
+				}
+			}
+			.banner-2{
+				.el-carousel__container{
+					.content{
+						left: 10px;
+						top: 10px;
+						max-width: 190px;
+						p{
+							font-size: 10px;
+							margin-top: 0;
+						}
+						.downloadBtn{
+							margin-top: 5px;
+						}
+					}
+				}
+			}
+			.plugin{
+				.container{
+					h1{
+						font-size: 20px;
+					}
+					ul{
+						li{
+							width: 50%;
+						}
+					}
+				}
+			}
+			.iMac{
+				.container{
+					.content{
+						margin-top: 5px;
+						width: 300px;
+						ul{
+							li{
+								line-height: 16px;
+								font-size: 10px;
+							}
+						}
+					}
+				}
+			}
+			.software{
+				.container{
+					h1{
+						font-size: 20px;
+						
+					}
+					ul{
+							li{
+								width: 50%;
+							}
+						}
+				}
+			}
+		}
+	}
 	@media only screen and (max-width:1300px) {
 		.index {
 			.custom {

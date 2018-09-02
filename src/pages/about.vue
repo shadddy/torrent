@@ -100,7 +100,7 @@
 			menu() {
 				var that = this
 				this.scroll = document.documentElement.scrollTop
-				console.log(this.scroll)
+
 			}
 		},
 
@@ -160,7 +160,7 @@
 </script>
 
 <style scoped lang="less">
-	@w: 19.2;
+		@w: 19.2;
 	.aboutus {
 		.banner-1 {
 			overflow: hidden;
@@ -202,13 +202,15 @@
 						-ms-transition: .5s;
 						-webkit-transition: .5s;
 						cursor: pointer;
-						margin-right: 30px;
 						display: inline-block;
 						color: #f9d681;
 						font-size: 20vw/@w;
 						padding: 22vw/@w 60vw/@w;
 						border: 1px solid #f9d681;
 						border-radius: 50vw/@w;
+					}
+					span:nth-of-type(2) {
+						margin-left: 30px;
 					}
 					span:hover {
 						background: #f9d681;
@@ -351,4 +353,90 @@
 			}
 		}
 	}
+	
+	@media only screen and (max-width:768px) {
+		.aboutus {
+			.banner-1 {
+				.container {
+					.content {
+						margin: 30px auto;
+						width: 90%;
+						h1 {
+							font-size: 20px;
+						}
+						p {
+							font-size: 12px;
+							line-height: 16px;
+						}
+					}
+				}
+			}
+			.func {
+				.container {
+					h1 {
+						font-size: 20px;
+						
+					}
+					ul {
+						li {
+							width: 50%;
+						}
+					}
+				}
+			}
+			.banner-2{
+				height: auto;
+
+				.container{
+					h1{
+						font-size: 20px;
+						margin-bottom: 10px;
+					}
+					p{
+						width: 90%;
+						font-size: 12px;
+					}
+					ul{
+						margin-top: 20px;
+						display: flex;
+						li{
+							margin-right: 0;
+							width: 150px;
+							height: 150px;
+							span:nth-of-type(1){
+								margin-top: 40px;
+								font-size: 24px;
+							}
+							span:nth-of-type(2){
+								font-size: 12px;
+							}
+						}
+					}
+				}
+			}
+			.step{
+				.container{
+					h1{
+						font-size: 20px;
+						font-weight: bold;
+					}
+					ul{
+						
+							.content{
+								h2{
+									font-size: 20px;
+								}
+								h3{
+									font-size: 14px;
+								}
+								p{
+									font-size: 12px;
+								}
+							}
+						
+					}
+				}
+			}
+		}
+		}
 </style>

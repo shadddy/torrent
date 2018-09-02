@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <router-view/>
+  		 <router-view/>
+  		  <my-dialog></my-dialog>
   </div>
 </template>
 
 <script>
+		import dialog from '@/components/base/dialog'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+  	myDialog:dialog
+  }
 }
 </script>
 
@@ -27,7 +32,9 @@ p,h1,h2,h3,h4,h5,h6,ul{
     -webkit-margin-end: 0px;
      -webkit-padding-start:0px;
 }
-
+.el-tabs__nav-wrap::after{
+		background-color: transparent;
+	}
 li{
 	list-style: none;
 }

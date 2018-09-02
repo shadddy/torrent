@@ -97,6 +97,10 @@
 
 <style scoped lang="less">
 @w:19.2;
+.banner-1{
+	background: url(../../static/img/software/software-1-1.jpg) no-repeat center;
+	background-size: 100% 100%;
+}
 .banner-2{
 	background: url(../../static/img/software/software-1-2.jpg) no-repeat center;
 	background-size: 100% 100%;
@@ -132,7 +136,6 @@
 .banner-3{
 	background: #f5f5f5;
 	.container{
-
 		ul{
 			margin: 0 auto;
 			margin-top: 80vw/@w;
@@ -163,6 +166,47 @@
 					font-size: 14px;
 					line-height: 30px;
 				}
+			}
+		}
+	}
+}
+@media only screen and (max-width:768px){
+	.banner-2{
+		position: relative;
+		height: auto;
+		overflow: hidden;
+		background: white;
+		.container{
+			.content{
+				padding: 20px;
+				position: relative;
+				top: 0;
+			}
+		}
+	}
+	.banner-3{
+		.container{
+			h1{
+				font-size: 20px;
+			}
+			ul{
+				li{
+					width: 100%;
+					div{
+						h3{
+							font-size: 14px;
+						}
+						p{
+							font-size: 12px;
+							line-height: 20px;
+						}
+					}
+				}
+			}
+			.btn{
+				width: 120px;
+				height: 30px;
+				line-height: 30px;
 			}
 		}
 	}

@@ -3,7 +3,7 @@ module.exports={
 		nav_top:{
 			nav1:'SoftWare',
 			nav2:'DownLoad',
-			nav3:'zhinan',
+			nav3:'Guide',
 			nav4:'About'
 		}
 	},
