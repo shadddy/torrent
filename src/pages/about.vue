@@ -8,8 +8,8 @@
 					<h1>{{$t('about.banner1.title')}}</h1>
 					<p>{{$t('about.banner1.title2')}}</p>
 					<div class="btn-box">
-						<span>{{$t('about.banner1.download')}}</span>
-						<span>{{$t('about.banner1.register')}}</span>
+						<span @click="Router('download')">{{$t('about.banner1.download')}}</span>
+						<span @click="Router('register')">{{$t('about.banner1.register')}}</span>
 					</div>
 				</div>
 			</div>
@@ -101,6 +101,9 @@
 				var that = this
 				this.scroll = document.documentElement.scrollTop
 
+			},
+			Router(url){
+				this.$router.push('/'+url)
 			}
 		},
 

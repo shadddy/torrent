@@ -12,6 +12,7 @@ Vue.use(ElementUI)
 Vue.use(VueI18n)
 Vue.config.productionTip = false
 
+
 const i18n=new VueI18n({
 	locale:'CN',
 	messages:{
@@ -20,6 +21,9 @@ const i18n=new VueI18n({
 	}
 })
 
+router.afterEach((to,from,next) => {
+  window.scrollTo(0,0);
+});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

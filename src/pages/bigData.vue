@@ -6,8 +6,8 @@
 				<h1>{{$t('bigdata.banner.title')}}</h1>
 				<p>{{$t('bigdata.banner.title2')}}</p>
 				<div class="btn-box">
-					<span>{{$t('table.part1.btn1')}}</span>
-					<span>{{$t('table.part1.btn2')}}</span>
+					<span @click="Router('download')">{{$t('table.part1.btn1')}}</span>
+					<span @click="Router('register')">{{$t('table.part1.btn2')}}</span>
 				</div>
 			</div>
 		</div>
@@ -36,6 +36,11 @@
 			myHeader: header,
 			myFooter: footer,
 			myChart: echart
+		},
+		methods:{
+			Router(url){
+				this.$router.push('/'+url)
+			}
 		},
 		computed: {
 			chartList() {

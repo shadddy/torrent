@@ -85,7 +85,7 @@
 			<div class="container">
 				<h1>更多简单易用的插件设计</h1>
 				<ul>
-					<li v-for="item in pluginList">
+					<li v-for="item in pluginList" @click="Router(item.url)">
 						<img :src="item.img" />
 						<h3>{{item.title}}</h3>
 						<p>{{item.txt}}</p>
@@ -149,7 +149,20 @@
 						console.log(res.data.apkUrl)
 					}
 				})
-			}
+			},
+			Router: function(str) {
+				if(str == "" || str == undefined) {
+					return false;
+				}
+				if(str == "/") {
+					str = "";
+				}
+				let strs = str;
+				if(strs == "index") {
+					strs = '';
+				}
+				this.$router.push('/' + strs);
+			},
 		},
 		computed: {
 			bannerList() {
@@ -178,7 +191,8 @@
 				}, {
 					img: require('../../static/img/plug-2.png'),
 					title: this.$t('plugin.p2.title'),
-					txt: this.$t('plugin.p2.txt')
+					txt: this.$t('plugin.p2.txt'),
+					url:'bigdata'
 				}, {
 					img: require('../../static/img/plug-3.png'),
 					title: this.$t('plugin.p3.title'),
@@ -210,7 +224,8 @@
 				}, {
 					img: require('../../static/img/plug-10.png'),
 					title: this.$t('plugin.p10.title'),
-					txt: this.$t('plugin.p10.txt')
+					txt: this.$t('plugin.p10.txt'),
+					url:'table'
 				}]
 			},
 			iMacList() {
@@ -445,6 +460,7 @@
 					flex-wrap: wrap;
 					margin: 0 auto;
 					li {
+						cursor: pointer;
 						transition: .5s;
 						border-top: 1px solid #e6e6e6;
 						border-right: 1px solid #e6e6e6;
@@ -464,6 +480,10 @@
 							font-size: 14vw/@w;
 						}
 					}
+					li:nth-of-type(1){
+						background: red;
+						color: white;
+					}
 					li:nth-of-type(1),
 					li:nth-of-type(6) {
 						border-left: 1px solid #e6e6e6;
@@ -475,8 +495,10 @@
 					li:nth-of-type(10) {
 						border-bottom: 1px solid #e6e6e6;
 					}
-					li:hover {
-						box-shadow: 0px 0px 15px #e6e6e6;
+					li:not(:first-child):hover {
+						/*box-shadow: 0px 0px 25px #e6e6e6;*/
+						background: #E0E0E0;
+						transform: scale(1.05);
 					}
 				}
 			}

@@ -28,7 +28,7 @@
 					</tr>
 
 				</table>
-				<span class="btn">{{$t('more')}}</span>
+				<span class="btn" @click="more">{{$t('more')}}</span>
 			</div>
 		</div>
 		<my-footer></my-footer>
@@ -42,6 +42,11 @@
 		components: {
 			myHeader: header,
 			myFooter: footer
+		},
+		methods:{
+			more(){
+				window.location.href='https://price.torrentfx.com/?symbols=EURUSD,GBPUSD,USDJPY,USDCAD,EURGBP,GBPAUD,GBPJPY,NZDUSD,USOIL,AUDUSD,XAUUSD,XAGUSD'
+			}
 		},
 		computed: {
 			tableList() {

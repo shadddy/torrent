@@ -148,14 +148,6 @@
 				}, {
 					name: this.$t("header.nav_top.nav3"),
 					url: 'guide',
-					length: true,
-					subNav: [{
-						name: '点差',
-						url: 'table'
-					}, {
-						name: '情绪大数据',
-						url: 'bigdata'
-					}]
 				}, {
 					name: this.$t("header.nav_top.nav4"),
 					url: 'about'
@@ -206,7 +198,7 @@
 							position: absolute;
 							z-index: 9999;
 							background: white;
-							width: 100%;
+							width: 60%;
 							left: 5px;
 							top: 60px;
 							li {
