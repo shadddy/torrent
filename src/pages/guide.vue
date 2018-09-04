@@ -32,6 +32,8 @@
 				<div class="content">
 					<my-collapse></my-collapse>
 					<my-collapse></my-collapse>
+					<my-collapse></my-collapse>
+					<my-collapse></my-collapse>
 				</div>
 				
 			</div>

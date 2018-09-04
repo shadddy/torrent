@@ -12,6 +12,7 @@ import thirdSoftPage from '@/pages/software_3'
 import forthSoftPage from '@/pages/software_4'
 import tablePage from '@/pages/table'
 import bigDataPage from '@/pages/bigData'
+import registerPage from '@/pages/register'
 
 Vue.use(Router)
 
@@ -80,6 +81,12 @@ export default new Router({
     	path:'/bigdata',
     	name:'bigDataPage',
     	component:bigDataPage
+    },
+    //注册页
+    {
+    	path:'/register',
+    	name:'registerPage',
+    	component:registerPage
     }
   ]
 })

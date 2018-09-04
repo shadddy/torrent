@@ -16,7 +16,7 @@
 						</ul>
 					</li>
 				</ul>
-				<span class="registerBtn">{{$t('registerBtn')}}</span>
+				<span class="registerBtn" @click="loginFunc">{{$t('registerBtn')}}</span>
 				<div class="language">
 					<span @click="isLangFun" :class="language?'en':'cn'">{{language?'En':'Ch'}}</span>
 					<span @click="langQh"  :class="[isLang?'act':null,language?'cn':'en']">{{!language?'En':'Ch'}}</span>
@@ -41,17 +41,23 @@
 				</ul>
 			</nav>
 		</div>
+		<my-login :isShow="loginShow" @on-close="closeLogin"></my-login>
 	</div>
 </template>
 
 <script>
+	import login from '@/components/login'
 	export default {
+		components:{
+			myLogin:login
+		},
 		data() {
 			return {
 				activeIndex: '0',
 				logo: require('../../static/img/logo.png'),
 				language: false,
 				isLang: false,
+				loginShow:false,
 
 			}
 		},
@@ -98,6 +104,13 @@
 			isLangFun: function() {
 				this.isLang = !this.isLang
 			},
+			//打开登录界面
+			loginFunc:function(){
+				this.loginShow=true
+			},
+			closeLogin:function(){
+				this.loginShow=false
+			}
 		},
 		mounted() {
 			let that = this;
@@ -154,13 +167,19 @@
 
 <style scoped lang="less">
 	.header {
+		position: fixed;
+		top: 0;
+		left: 0;
 		width: 100%;
-		padding-bottom: 10px;
+
+		background: white;
+		z-index: 9999;
+		border-bottom: 1px solid #ccc;
 		.container {
 			.logo {
 				margin-top: 10px;
-				width: 124px;
-				height: 52px;
+				width: 110px;
+				height: 46px;
 				display: inline-block;
 				cursor: pointer;
 				img {
@@ -169,6 +188,7 @@
 				}
 			}
 			.right {
+				margin-top: 10px;
 				display: flex;
 				float: right;
 				ul {
@@ -188,7 +208,7 @@
 							background: white;
 							width: 100%;
 							left: 5px;
-							top: 70px;
+							top: 60px;
 							li {
 								text-align: center;
 								display: block;
@@ -201,9 +221,9 @@
 					border: 1px solid #808080;
 					width: 50px;
 					text-align: center;
-					height: 40px;
-					line-height: 40px;
-					margin-top: 12px;
+					height: 30px;
+					line-height: 30px;
+					margin-top: 16px;
 					border-radius: 5px;
 					cursor: pointer;
 				}
@@ -213,7 +233,7 @@
 					z-index: 200;
 					width: 65px;
 					height: 32px;
-					margin-top: 20px;
+					margin-top: 16px;
 					margin-left: 10px;
 					span {
 						display: block;

@@ -1,10 +1,10 @@
 <template>
 	<div class="footer">
 		<div class="container">
-			<h4>{{$t('footer.title')}}</h4>
+			<!--<h4>{{$t('footer.title')}}</h4>
 			<p v-for="item in footList">
 				{{item.txt}}
-			</p>
+			</p>-->
 			<span class="copyright">
 				{{$t('footer.copyright')}}
 			</span>
@@ -37,7 +37,7 @@
 	.footer {
 		background-color: #1a1717;
 		.container {
-			padding: 85vw/@w 0 30vw/@w 0;
+			padding: 25vw/@w 0 30vw/@w 0;
 			h4 {
 				color: #e1e0e0;
 				font-size: 14px;

@@ -7,14 +7,14 @@ module.exports={
 			nav4:'关于'
 		},
 		subNav_1:{
-			nav1:'PC端',
-			nav2:'手机端',
-			nav3:'松鼠证券', 
-			nav4:'复制软件'
+			nav1:'Fomi交易大师',
+			nav2:'随身财富宝',
+			nav3:'松鼠快投', 
+			nav4:'跟单达人'
 		}
 		
 	},
-	registerBtn:'注册',
+	registerBtn:'登录',
 	more:'查看更多',
 	banner:{
 		banner1:{
@@ -105,7 +105,7 @@ module.exports={
 		txt3:'风险警示：差价合约（CFD）是以差价进行交易的复杂金融产品。交易差价合约需要承受高风险，因为杠杆既有有利的方面，也有不利的方面。因此，差价合约并非适 合所有的投资者，因为您可能损失投入的所有资金。您不应该去冒险超过您预算之内的损失。在决定交易之前，请确保您懂得风险，还要考虑到您的投资目标和经验水 平。过去的绩效并不代表未来的结果。大部分差价合约没有固定到期日。因此，持仓到期日为您选择现有持仓平仓的日期。如果必要的话可以寻求独立意见。',
 		txt4:'该网站由Torrent Trading Technology公司运行。本网站仅是信息渠道，并不应该被视为广告或招揽媒介，网站的任何内容不应该被视为广告或游说使用我们的服务。 Torrent Trading Technology公司在塞浦路斯注册成立，公司注册地址为：Christoforou Perraivou, 2 Floor 5, Flat 5, Kalia Court Limassol, 3025 Cyprus.',
 		txt5:'风险披露：外汇交易隐含损失本金的高风险。外汇交易并非适用所有投资人，入市前请充分了解潜在风险，请确保您已经通读并完全理解我们的风险披露。 限制地区：TorrentFX不向欧洲经济区, 、美国、日本、英属哥伦比亚（加拿大）、萨斯喀彻温省（加拿大）及伊朗居民提供服务。',
-		copyright:'©2018 torrent trading technology ltd. 保留所有权利。'
+		copyright:'©2018 fomifx technology ltd. 保留所有权利。'
 	},
 	
 	//关于

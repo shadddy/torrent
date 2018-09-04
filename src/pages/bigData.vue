@@ -160,4 +160,21 @@
 			}
 		}
 	}
+	@media only screen and (max-width: 768px) {
+		.bigdata{
+			.part-1{
+				h1{
+					font-size: 20px;
+				}
+				.content{
+					ul{
+						li{
+							width: 100%;
+							height: 300px;
+						}
+					}
+				}
+			}
+		}
+	}
 </style>

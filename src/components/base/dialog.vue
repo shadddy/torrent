@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<div class="dialog-wrap" >
-			<div class="dialog-content" v-if="isShow">
+		<div class="dialog-wrap" v-if="isShow">
+			<div class="dialog-content" >
 				<span class="dialog-close" @click="closeMyself">x</span>
 				<slot>empty</slot>
 			</div>
@@ -25,7 +25,7 @@
 		},
 		methods:{
 			closeMyself(){
-				this.$store.state.show=false
+				this.isShow=false
 			},
 		}
 	}

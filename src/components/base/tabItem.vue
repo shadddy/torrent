@@ -113,4 +113,22 @@
 			}
 		}
 	}
+	@media only screen and (max-width: 768px) {
+		.tabItem{
+			.content{
+				flex-direction: column;
+				div{
+					width: 100%;
+					.left-wrap{
+						padding: 30px 20px;
+						div{
+							display: flex;
+							flex-direction: column;
+							justify-content: space-between;
+						}
+					}
+				}
+			}
+		}	
+	}
 </style>

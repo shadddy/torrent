@@ -286,6 +286,7 @@
 				h2 {
 					font-size: 32vw/@w;
 					color: white;
+					margin: 20vw/@w 0 60vw/@w 0;
 				}
 				.download {
 					transition: .5s;
@@ -328,12 +329,12 @@
 						background-image: url(../../static/img/icon-1.png);
 						background-position: center;
 						background-repeat: no-repeat;
-						margin-right: 10px;
+						margin-right: 20px;
 					}
 					.right {
 						width: 300px;
 						h3 {
-							margin-top: 20px;
+							
 						}
 						p {
 							margin-top: 10px;

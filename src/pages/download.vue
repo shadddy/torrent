@@ -276,11 +276,11 @@
 		}
 	}
 	
-	.content_left_right{
+	.content_left_right {
 		position: absolute;
 		right: 0;
-
 	}
+	
 	.content_right {
 		width: 530vw/@w;
 		position: absolute;
@@ -310,6 +310,38 @@
 		}
 		.icon-3 {
 			background: url(../../static/img/download/part3-icon-3.png) center no-repeat;
+		}
+	}
+	
+	@media only screen and (max-width: 768px) {
+		.part-2 ,.part-3,.part-4,.part-5{
+			height: auto;
+			padding: 20px;
+			.container {}
+		}
+		.part-2{
+			background: white;
+		}
+		.part-3{
+			background: black;
+		}
+		.part-4{
+			background: white;
+		}
+		.part-5{
+			background: #f5f5f5;
+		}
+		.content_left,.content_right {
+			width: 100%;
+			padding-top: 10px;
+			position: relative;
+			top: 0;
+			.btn{
+				width: 100px;
+				height: 25px;
+				line-height: 25px;
+				margin: 0 auto;
+			}
 		}
 	}
 </style>
