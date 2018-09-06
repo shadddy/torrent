@@ -169,9 +169,9 @@
 		border-bottom: 1px solid #ccc;
 		.container {
 			.logo {
-				margin-top: 10px;
-				width: 110px;
-				height: 46px;
+				margin-top: 20px;
+				width: 90px;
+				height: 36px;
 				display: inline-block;
 				cursor: pointer;
 				img {

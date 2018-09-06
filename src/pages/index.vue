@@ -5,9 +5,9 @@
 		<div class="banner-1">
 			<div class="container">
 				<div class="content">
-					<h1>Torrent-Trader7.0</h1>
-					<h2>定制化的专业级多界面看盘软件</h2>
-					<div class="download">立即下载</div>
+					<h1>{{$t('index.banner1.title')}}</h1>
+					<h2>{{$t('index.banner1.title2')}}</h2>
+					<div class="download">{{$t('index.banner1.btn')}}</div>
 				</div>
 			</div>
 		</div>
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div class="container">
-				<div class="custom-item-2">
+				<div class="custom-item-2" @mouseenter="setBannerActive(0)">
 					<div>
 						<span>松鼠快投APP</span>
 						<span>新手用户首选软件</span>
@@ -48,14 +48,14 @@
 
 				</div>
 
-				<div class="custom-item-2">
+				<div class="custom-item-2" @mouseenter="setBannerActive(1)">
 					<div>
 						<span>手机炒汇理财</span>
 						<span>随身的财富管家</span>
 					</div>
 
 				</div>
-				<div class="custom-item-2">
+				<div class="custom-item-2" @mouseenter="setBannerActive(2)">
 					<div>
 						<span>智能跟单社区</span>
 						<span>轻松下单轻松投</span>
@@ -66,8 +66,8 @@
 		</div>
 		<!--banner-->
 		<div class="banner-2">
-			<el-carousel height="39vw">
-				<el-carousel-item v-for="(item,index) in bannerList" :key="index">
+			<el-carousel height="39vw" :autoplay='false' ref="carousel">
+				<el-carousel-item v-for="(item,index) in bannerList" :key="index" >
 					<img :src="item.src" />
 					<div class="content">
 						<h1>{{item.title}}</h1>
@@ -163,6 +163,9 @@
 				}
 				this.$router.push('/' + strs);
 			},
+			setBannerActive:function(val){
+				this.$refs.carousel.setActiveItem(val)
+			}
 		},
 		computed: {
 			bannerList() {
@@ -295,7 +298,7 @@
 				width: 500vw/@w;
 				h1 {
 					font-size: 54vw/@w;
-					color: #f9d681;
+					color: #e61737;
 					font-weight: 500;
 				}
 				h2 {
@@ -312,17 +315,17 @@
 					margin-top: 20vw/@w;
 					width: 300vw/@w ;
 					height: 78vw/@w;
-					background: #f9d681;
-					border: 1px solid #f9d681;
-					color: black;
+					background: #e61737;
+					border: 1px solid #e61737;
+					color: white;
 					font-size: 20vw/@w;
 					text-align: center;
 					line-height: 78vw/@w;
-					border-radius: 20vw/@w;
+					border-radius: 40vw/@w;
 				}
 				.download:hover {
 					background: transparent;
-					color: #f9d681;
+					color: #e61737;
 				}
 			}
 		}
@@ -340,7 +343,7 @@
 						width: 90px;
 						height: 90px;
 						border-radius: 50%;
-						background-color: #4286f5;
+						background-color: #e61737;
 						background-image: url(../../static/img/icon-1.png);
 						background-position: center;
 						background-repeat: no-repeat;
@@ -372,18 +375,19 @@
 				border-bottom: 1px solid #ccc;
 			}
 			.container:nth-of-type(2) {
-				padding: 60vw/@w 0 120vw/@w 0;
+				padding: 40vw/@w 0 0vw/@w 0;
 				.custom-item-2 {
 					width: calc(100%/3);
 					div {
-						transition: .5s;
+						/*transition: .5s;
 						-moz-transition: .5s;
 						-ms-transition: .5s;
-						-webkit-transition: .5s;
+						-webkit-transition: .5s;*/
 						width: 230vw/@w;
-						padding: 15vw/@w 0;
-						border-radius: 50px;
+						padding: 45vw/@w 0 60vw/@w 0;
+
 						margin: 0 auto;
+						
 						span {
 							display: block;
 							text-align: center;
@@ -397,8 +401,12 @@
 							color: rgba(0, 0, 0, 0.5);
 						}
 					}
-					div:hover {
-						background: #f9d681;
+					div:hover{
+						background: #b61d22;
+						
+					}
+					div:hover span{
+						color: white;
 					}
 				}
 			}
@@ -481,7 +489,7 @@
 						}
 					}
 					li:nth-of-type(1){
-						background: red;
+						background: #e61737;
 						color: white;
 					}
 					li:nth-of-type(1),
@@ -512,9 +520,11 @@
 			overflow: hidden;
 			.container {
 				.content {
-					width: 500vw/@w;
+					width: 540vw/@w;
 					margin-top: 200vw/@w;
 					h1 {
+						background: #971f31;
+						padding: 18vw/@w 14vw/@w;
 						color: white;
 						font-size: 50vw/@w;
 						margin-bottom: 40vw/@w;

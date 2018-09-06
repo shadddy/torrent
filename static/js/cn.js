@@ -33,6 +33,13 @@ module.exports={
 			txt:'手机理财看盘，便捷的投资利器，适用于Android及IOS系统，特色功能，行情信息早知道，一键账户收益计算，更智能大数据严选，情绪指数，帮助决策。'
 		}
 	},
+	index:{
+		banner1:{
+			title:'Fomi-Trader 7.0',
+			title2:'定制化的专业级多界面看盘软件',
+			btn:'立即下载'
+		}
+	},
 	plugin:{
 		p1:{
 			title:'进阶指南',
