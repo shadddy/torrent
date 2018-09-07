@@ -43,6 +43,12 @@ li{
 	width: 1300px;
 	margin: 0 auto;
 }
+.el-tabs__item.is-active{
+			color:#e71737;
+		}
+		.el-tabs__active-bar{
+			background-color: #e71737;
+		}
 	@media only screen and (max-width:1300px){
 		.container{
 			width: 100%;

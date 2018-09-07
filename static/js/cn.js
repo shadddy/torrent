@@ -23,14 +23,14 @@ module.exports={
 			txt:'指尖上的投资利器，适合新手及年轻人的APP，严选多种情绪交易分析，一键快速下单，更简单更智能，投资客的社区，自己发声。'
 		},
 		banner2:{
-			title:'Socialtrading Plus',
-			title2:'跟单利器',
-			txt:'20000余跟单信号资源，10 多年全球历史投资数据，多账户绑定，同步策略信号，采用交易安全卫士PosiGuard，支持自动跟单和反向跟单。'
-		},
-		banner3:{
 			title:'Mobile-Trader V5.1',
 			title2:'震撼发布',
 			txt:'手机理财看盘，便捷的投资利器，适用于Android及IOS系统，特色功能，行情信息早知道，一键账户收益计算，更智能大数据严选，情绪指数，帮助决策。'
+		},
+		banner3:{
+			title:'Socialtrading Plus',
+			title2:'跟单利器',
+			txt:'20000余跟单信号资源，10 多年全球历史投资数据，多账户绑定，同步策略信号，采用交易安全卫士PosiGuard，支持自动跟单和反向跟单。'
 		}
 	},
 	index:{

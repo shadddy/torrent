@@ -1,5 +1,5 @@
 <template>
-<div class="software_4">
+	<div class="software_4">
 		<div class="banner-1">
 			<div class="container">
 				<div class="content">
@@ -30,7 +30,7 @@
 			<div class="container">
 				<h1>{{$t('software_1.third.title')}}</h1>
 				<ul>
-					<li v-for="(item,index) in banner3List"> 
+					<li v-for="(item,index) in banner3List">
 						<span>0{{index+1}}</span>
 						<div>
 							<h3>{{item.title}}</h3>
@@ -38,7 +38,7 @@
 						</div>
 					</li>
 				</ul>
-				<span class="btn">{{$t('software_1.third.btn')}}</span>
+				<span class="btn" @click="swift">{{$t('software_1.third.btn')}}</span>
 			</div>
 		</div>
 	</div>
@@ -47,47 +47,52 @@
 <script>
 	import header from '@/components/header'
 	import footer from '@/components/footer'
-	export default{
+	export default {
 		components: {
 			myHeader: header,
 			myFooter: footer
 		},
-		computed:{
-			banner2List(){
+		methods: {
+			swift() {
+				this.$router.push('/download');
+			}
+		},
+		computed: {
+			banner2List() {
 				return [{
-					title:this.$t('software_4.second.title1'),
-					txt:this.$t('software_4.second.txt1'),
-					icon:require('../../static/img/software/icon-13.png'),
-				},{
-					title:this.$t('software_4.second.title2'),
-					txt:this.$t('software_4.second.txt2'),
-					icon:require('../../static/img/software/icon-14.png'),
-				},{
-					title:this.$t('software_4.second.title3'),
-					txt:this.$t('software_4.second.txt3'),
-					icon:require('../../static/img/software/icon-15.png'),
-				},{
-					title:this.$t('software_4.second.title4'),
-					txt:this.$t('software_4.second.txt4'),
-					icon:require('../../static/img/software/icon-16.png'),
+					title: this.$t('software_4.second.title1'),
+					txt: this.$t('software_4.second.txt1'),
+					icon: require('../../static/img/software/icon-13.png'),
+				}, {
+					title: this.$t('software_4.second.title2'),
+					txt: this.$t('software_4.second.txt2'),
+					icon: require('../../static/img/software/icon-14.png'),
+				}, {
+					title: this.$t('software_4.second.title3'),
+					txt: this.$t('software_4.second.txt3'),
+					icon: require('../../static/img/software/icon-15.png'),
+				}, {
+					title: this.$t('software_4.second.title4'),
+					txt: this.$t('software_4.second.txt4'),
+					icon: require('../../static/img/software/icon-16.png'),
 				}]
 			},
-			banner3List(){
+			banner3List() {
 				return [{
-					title:this.$t('software_4.third.title1'),
-					txt:this.$t('software_4.third.txt1')
-				},{
-					title:this.$t('software_4.third.title2'),
-					txt:this.$t('software_4.third.txt2')
-				},{
-					title:this.$t('software_4.third.title3'),
-					txt:this.$t('software_4.third.txt3')
-				},{
-					title:this.$t('software_4.third.title4'),
-					txt:this.$t('software_4.third.txt4')
-				},{
-					title:this.$t('software_4.third.title5'),
-					txt:this.$t('software_4.third.txt5')
+					title: this.$t('software_4.third.title1'),
+					txt: this.$t('software_4.third.txt1')
+				}, {
+					title: this.$t('software_4.third.title2'),
+					txt: this.$t('software_4.third.txt2')
+				}, {
+					title: this.$t('software_4.third.title3'),
+					txt: this.$t('software_4.third.txt3')
+				}, {
+					title: this.$t('software_4.third.title4'),
+					txt: this.$t('software_4.third.txt4')
+				}, {
+					title: this.$t('software_4.third.title5'),
+					txt: this.$t('software_4.third.txt5')
 				}]
 			}
 		}
@@ -95,105 +100,106 @@
 </script>
 
 <style scoped lang="less">
-@w:19.2;
- .banner-1{
- 	background: url(../../static/img/software/software-4-1.jpg) no-repeat center;
-	background-size: 100% 100%;
- }
- .banner-2{
- 	width: 100%;
-	height: 980vw/@w;
-	background: url(../../static/img/software/software-4-2.jpg) no-repeat center;
-	background-size: 100% 100%;
-	.content{
-		ul{
-			li{
-				display: inline-block;
-				text-align: center;
-				position: absolute;
-				img{
-					width: 94vw/@w;
-					height: 94vw/@w;
-				}
-				h3{
-					font-size: 30vw/@w;
-				}
-				p{
-					font-size: 14vw/@w;
-					padding: ;
-				}
-			}
-			li:nth-of-type(1){
-				left:20vw/@w ;
-				top: 170vw/@w;
-			}
-			li:nth-of-type(2){
-				right: -20vw/@w;
-				top: 170vw/@w;
-			}
-			li:nth-of-type(3){
-				left: 20vw/@w;
-				top: 500vw/@w;
-			}
-			li:nth-of-type(4){
-				right: -20vw/@w;
-				top: 500vw/@w;
-			}
-		}
+	@w: 19.2;
+	.banner-1 {
+		background: url(../../static/img/software/software-4-1.jpg) no-repeat center;
+		background-size: 100% 100%;
 	}
- }
- @media only screen and (max-width:768px){
-	.banner-2{
-		position: relative;
-		height: auto;
-		overflow: hidden;
-		background: white;
-		.container{
-			.content{
-				width: 100%;
-				padding: 20px;
-				position: relative;
-				top: 0;
-				ul{
-					display:flex;
-					flex-wrap: wrap;
-					justify-content: space-between;
-					li{
-						position: relative;
-						width: 48%;
-					
-						left: auto;
-						top: auto;
+	
+	.banner-2 {
+		width: 100%;
+		height: 980vw/@w;
+		background: url(../../static/img/software/software-4-2.jpg) no-repeat center;
+		background-size: 100% 100%;
+		.content {
+			ul {
+				li {
+					display: inline-block;
+					text-align: center;
+					position: absolute;
+					img {
+						width: 94vw/@w;
+						height: 94vw/@w;
+					}
+					h3 {
+						font-size: 30vw/@w;
+					}
+					p {
+						font-size: 14vw/@w;
+						padding: ;
 					}
 				}
+				li:nth-of-type(1) {
+					left: 20vw/@w ;
+					top: 170vw/@w;
+				}
+				li:nth-of-type(2) {
+					right: -20vw/@w;
+					top: 170vw/@w;
+				}
+				li:nth-of-type(3) {
+					left: 20vw/@w;
+					top: 500vw/@w;
+				}
+				li:nth-of-type(4) {
+					right: -20vw/@w;
+					top: 500vw/@w;
+				}
 			}
 		}
 	}
-	.banner-3{
-		.container{
-			h1{
-				font-size: 20px;
-			}
-			ul{
-				li{
+	
+	@media only screen and (max-width:768px) {
+		.banner-2 {
+			position: relative;
+			height: auto;
+			overflow: hidden;
+			background: white;
+			.container {
+				.content {
 					width: 100%;
-					div{
-						h3{
-							font-size: 14px;
-						}
-						p{
-							font-size: 12px;
-							line-height: 20px;
+					padding: 20px;
+					position: relative;
+					top: 0;
+					ul {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: space-between;
+						li {
+							position: relative;
+							width: 48%;
+							left: auto;
+							top: auto;
 						}
 					}
 				}
 			}
-			.btn{
-				width: 120px;
-				height: 30px;
-				line-height: 30px;
+		}
+		.banner-3 {
+			.container {
+				h1 {
+					font-size: 20px;
+				}
+				ul {
+					li {
+						width: 100%;
+						div {
+							h3 {
+								font-size: 14px;
+							}
+							p {
+								font-size: 12px;
+								line-height: 20px;
+							}
+						}
+					}
+				}
+				.btn {
+					width: 120px;
+					height: 30px;
+					line-height: 30px;
+				}
 			}
 		}
 	}
-}
 </style>

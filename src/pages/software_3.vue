@@ -39,7 +39,7 @@
 						</div>
 					</li>
 				</ul>
-				<span class="btn">{{$t('software_1.third.btn')}}</span>
+				<span class="btn" @click="swift">{{$t('software_1.third.btn')}}</span>
 			</div>
 			
 		</div>
@@ -53,6 +53,11 @@
 		components: {
 			myHeader: header,
 			myFooter: footer
+		},
+		methods:{
+			swift(){
+				this.$router.push('/download');
+			}
 		},
 		computed: {
 			banner2List() {

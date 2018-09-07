@@ -33,7 +33,7 @@
 							<span class="link">{{$t('download.part2.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn">
+					<div class="btn" @click="download('FomiFX MT4 For Windows.exe')">
 						{{$t('download.btn')}}
 					</div>
 				</div>
@@ -60,7 +60,7 @@
 							<span class="link">{{$t('download.part3.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn">
+					<div class="btn" @click="download('FomiFX MT4 For Windows.exe')">
 						{{$t('download.btn')}}
 					</div>
 				</div>
@@ -132,6 +132,11 @@
 			myHeader: header,
 			myFooter: footer
 		},
+		methods:{
+			download(url) {
+				this.downloadFuc(url)
+			},
+		},
 		computed: {
 			part1() {
 				return [{
@@ -196,6 +201,13 @@
 		height: 839vw/@w ;
 		background: url(../../static/img/download/download-3.jpg) no-repeat center;
 		background-size: 100% 100%;
+		.content_right{
+			width: 560vw/@w;
+			h1{
+			background: #e71737;
+			padding: 14vw/@w 20vw/@w;
+		}
+		}
 	}
 	
 	.part-4 {
@@ -222,19 +234,20 @@
 	.link {
 		margin-right: 10vw/@w;
 		cursor: pointer;
-		color: #4ea1ff;
+		color: #e71737;
 	}
 	
 	.btn {
 		width: 250vw/@w;
 		height: 66vw/@w;
-		background: #f9d681;
+		background: #e71737;
 		border-radius: 40vw/@w;
 		text-align: center;
 		line-height: 66vw/@w;
 		font-size: 20vw/@w;
 		margin-top: 60vw/@w;
-		border: 1px solid #f9d681;
+		border: 1px solid #e71737;
+		color: white;
 		transition: .5s;
 		-moz-transition: .5s;
 		-ms-transition: .5s;

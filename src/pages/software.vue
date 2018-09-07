@@ -20,6 +20,7 @@
 <style lang="less">
 	@w: 19.2;
 	@yellow: #f9d681;
+	@red:#e71737;
 	.software {
 		.banner-1 {
 			width: 100%;
@@ -42,6 +43,10 @@
 					.btnBox {
 						margin-top: 80vw/@w;
 						span {
+							transition: .5s;
+							-moz-transition: .5s;
+							-o-transition: .5s;
+							-webkit-transition: .5s;
 							cursor: pointer;
 							font-size: 20vw/@w;
 							color: @yellow;
@@ -49,6 +54,10 @@
 							border: 1px solid @yellow;
 							border-radius: 50vw/@w;
 							margin-right: 20vw/@w;
+						}
+						span:hover{
+							background:@yellow;
+							color:white; 
 						}
 					}
 				}
@@ -71,17 +80,18 @@
 					cursor: pointer;
 					width: 430vw/@w;
 					height: 77vw/@w;
-					background: @yellow;
+					background: @red;
 					display: block;
+					color: white;
 					line-height: 77vw/@w;
 					text-align: center;
 					margin: 70vw/@w auto 0 auto;
 					border-radius: 30vw/@w;
-					border: 1px solid @yellow;
+					border: 1px solid @red;
 				}
 				.btn:hover {
 					background: transparent;
-					color: @yellow;
+					color: @red;
 				}
 				ul {
 					margin: 0 auto;

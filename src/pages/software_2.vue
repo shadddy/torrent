@@ -6,8 +6,8 @@
 					<h1>{{$t('software_2.first.title')}}</h1>
 					<h3>{{$t('software_2.first.title2')}}</h3>
 					<div class="btnBox">
-						<span>{{$t('software_2.first.btn1')}}</span>
-						<span>{{$t('software_2.first.btn2')}}</span>
+						<span @click="download('FomiFX MT4 For Windows.exe')">{{$t('software_2.first.btn1')}}</span>
+						<span @click="download('FomiFX MT5 For Windows.exe')">{{$t('software_2.first.btn2')}}</span>
 					</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 						</div>
 					</li>
 				</ul>
-				<span class="btn">{{$t('software_1.third.btn')}}</span>
+				<span class="btn" @click="swift">{{$t('software_1.third.btn')}}</span>
 			</div>
 		</div>
 	</div>
@@ -52,6 +52,14 @@
 		components: {
 			myHeader: header,
 			myFooter: footer
+		},
+		methods:{
+			download(url){
+				this.downloadFuc(url)
+			},
+			swift(){
+				this.$router.push('/download');
+			}
 		},
 		computed:{
 			banner2List(){

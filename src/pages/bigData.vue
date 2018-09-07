@@ -12,8 +12,9 @@
 			</div>
 		</div>
 		<div class="part-1">
+			<h1>{{$t('bigdata.banner.title')}}</h1>
 			<div class="container">
-				<h1>{{$t('bigdata.banner.title')}}</h1>
+				
 				<div class="content">
 					<ul>
 						<li v-for="item in chartList">
@@ -89,6 +90,7 @@
 			background: url(../../static/img/bigdata/banner-1.jpg) center no-repeat;
 			background-size: 100% 100%;
 			overflow: hidden;
+			position: relative;
 			.content {
 				width: 60%;
 				margin: 145vw/@w auto;
@@ -141,14 +143,26 @@
 			}
 		}
 		.part-1 {
+			position: relative;
+			overflow: hidden;
 			background: #f5f5f5;
 			h1 {
+				box-sizing: border-box;
 				text-align: center;
-				padding-top: 135vw/@w;
-				padding-bottom: 40vw/@w;
+				top: 90vw/@w;
+				font-size: 32vw/@w;
+				padding-left: 40px;
+				position:absolute;
+				font-weight: 500;
+				background-image: url(../../static/img/bigdata/icon.png);
+				background-repeat: no-repeat;
+				background-position: left;
+				left:50%;
+				transform: translateX(-50%)
 			}
 			.content {
 				width: 100%;
+				margin-top: 210vw/@w;
 				ul {
 					display:flex;
 					flex-wrap: wrap;

@@ -146,7 +146,7 @@
 					th {
 						letter-spacing: 10px;
 						font-weight: 100;
-						background: #0a264d;
+						background: #b61d22;
 						color: white;
 						padding: 30px 0;
 					}
@@ -171,8 +171,9 @@
 					text-align: center;
 					line-height: 78vw/@w;
 					font-size: 30vw/@w;
-					border: 1px solid #f9d681;
-					background: #f9d681;
+					border: 1px solid #e71737;
+					color: white;
+					background: #e71737;
 					cursor: pointer;
 					border-radius: 40vw/@w;
 					transition: .5s;
@@ -182,7 +183,7 @@
 				}
 				.btn:hover{
 					background: transparent;
-					color: #f9d681;
+					color: #e71737;
 				}
 			}
 		}

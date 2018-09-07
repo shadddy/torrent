@@ -69,8 +69,8 @@
 					</li>
 				</ul>
 				<div class="btn-box">
-					<span>{{$t('about.banner1.download')}}</span>
-					<span>{{$t('about.banner1.register')}}</span>
+					<span @click="Router('download')">{{$t('about.banner1.download')}}</span>
+					<span @click="Router('register')">{{$t('about.banner1.register')}}</span>
 				</div>
 			</div>
 		</div>
@@ -227,6 +227,8 @@
 				padding: 100vw/@w 0;
 				h1 {
 					text-align: center;
+					font-size: 34vw/@w;
+					font-weight: 500;
 				}
 				ul {
 					margin-top: 50px;
@@ -238,7 +240,7 @@
 						padding: 20px;
 						h4 {
 							font-size: 20px;
-							font-weight: 600;
+							font-weight: 500;
 							margin: 30px 0 10px 0;
 						}
 						p {
@@ -288,6 +290,7 @@
 						span:nth-of-type(1) {
 							font-size: 58px;
 							margin-top: 65px;
+							margin-bottom: 10px;
 						}
 					}
 				}
@@ -301,7 +304,7 @@
 				h1 {
 					text-align: center;
 					font-weight: 500;
-					margin-bottom: 50px;
+					margin-bottom: 80px;
 				}
 				ul {
 					flex-wrap: wrap;
@@ -323,7 +326,10 @@
 						h2 {
 							font-size: 50vw/@w;
 							font-style: italic;
-							color: #2397f0;
+							color: #e71737;
+						}
+						h3{
+							color: #e71737;
 						}
 					}
 				}
@@ -342,14 +348,14 @@
 						cursor: pointer;
 						margin-right: 30px;
 						display: inline-block;
-						color: #d6b470;
+						color: #e71737;
 						font-size: 20vw/@w;
 						padding: 22vw/@w 60vw/@w;
-						border: 1px solid #d6b470;
+						border: 1px solid#e71737;
 						border-radius: 50vw/@w;
 					}
 					span:hover {
-						background: #d6b470;
+						background: #e71737;
 						color: white;
 					}
 				}

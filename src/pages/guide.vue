@@ -138,11 +138,13 @@
 
 <style scoped lang="less">
 	@w: 19.2;
+	
 	.part-1 {
 		width: 100%;
 		height: 800vw/@w ;
 		background: url(../../static/img/download/download-1.jpg) no-repeat center;
 		background-size: 100% 100%;
+		
 		.content {
 			width: 640vw/@w;
 			margin: 0 auto;
@@ -172,6 +174,7 @@
 	}
 	
 	.part-2 {
+		
 		.container {
 			padding: 135vw/@w 0;
 			h1 {
@@ -183,6 +186,7 @@
 				.el-tabs__nav-wrap::after{
 					background-color: transparent;
 				}
+				
 			}
 		}
 	}

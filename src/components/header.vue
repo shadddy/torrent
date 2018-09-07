@@ -18,8 +18,8 @@
 				</ul>
 				<span class="registerBtn" @click="loginFunc">{{$t('registerBtn')}}</span>
 				<div class="language">
-					<span @click="isLangFun" :class="language?'en':'cn'">{{language?'En':'Ch'}}</span>
-					<span @click="langQh"  :class="[isLang?'act':null,language?'cn':'en']">{{!language?'En':'Ch'}}</span>
+					<span @click="langQh" :class="language?'cn':'en'">{{language?'CH':'EN'}}</span>
+					<!-- <span @click="langQh"  :class="[isLang?'act':null,language?'cn':'en']">{{!language?'En':'Ch'}}</span> -->
 				</div>
 			</div>
 			<!--移动端导航-->
@@ -93,7 +93,7 @@
 			//  中英文切换
 			langQh: function() {
 				this.language = !this.language;
-				this.isLang = !this.isLang;
+				// this.isLang = !this.isLang;
 				if(this.$i18n.locale == 'EN') {
 					this.$i18n.locale = 'CN';
 				} else {
@@ -335,6 +335,7 @@
 	
 	@media only screen and (max-width: 768px) {
 		.header {
+			position: relative;
 			.container {
 				.right {
 					margin-right: 10px;

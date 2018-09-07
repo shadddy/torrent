@@ -7,7 +7,7 @@
 				<div class="content">
 					<h1>{{$t('index.banner1.title')}}</h1>
 					<h2>{{$t('index.banner1.title2')}}</h2>
-					<div class="download">{{$t('index.banner1.btn')}}</div>
+					<div class="download" @click='download("FomiFX MT4 For Windows.exe")'>{{$t('index.banner1.btn')}}</div>
 				</div>
 			</div>
 		</div>
@@ -66,8 +66,8 @@
 		</div>
 		<!--banner-->
 		<div class="banner-2">
-			<el-carousel height="39vw" :autoplay='false' ref="carousel">
-				<el-carousel-item v-for="(item,index) in bannerList" :key="index" >
+			<el-carousel height="39vw" ref="carousel" @change="bannerChange()" :autoplay="false">
+				<el-carousel-item v-for="(item,index) in bannerList" :key="index">
 					<img :src="item.src" />
 					<div class="content">
 						<h1>{{item.title}}</h1>
@@ -85,7 +85,7 @@
 			<div class="container">
 				<h1>更多简单易用的插件设计</h1>
 				<ul>
-					<li v-for="item in pluginList" @click="Router(item.url)">
+					<li v-for="(item,index) in pluginList" @click="Router(index,item.url)">
 						<img :src="item.img" />
 						<h3>{{item.title}}</h3>
 						<p>{{item.txt}}</p>
@@ -134,37 +134,42 @@
 		},
 		data() {
 			return {
-
+				itemIndex: 0 //banner图当前索引
 			}
 		},
 		methods: {
 			download(url) {
-				let that = this;
-				$.ajax({
-					url: '',
-					method: "get",
-					data: {},
-					success: function(res) {
-						window.open(res.data.apkUrl);
-						console.log(res.data.apkUrl)
+				//				window.open('http://www.fomifx.com/download/FomiFX MT5 For Windows.exe')
+				//				this.$func('http://www.fomifx.com/download/FomiFX MT5 For Windows.exe')
+				this.downloadFuc(url)
+			},
+			Router: function(index, str) {
+				if(index == 1 || index == 9) {
+					if(str == "" || str == undefined) {
+						return false;
 					}
-				})
+					if(str == "/") {
+						str = "";
+					}
+					let strs = str;
+					if(strs == "index") {
+						strs = '';
+					}
+					this.$router.push('/' + strs);
+				}else{
+					this.download(str)
+				}
 			},
-			Router: function(str) {
-				if(str == "" || str == undefined) {
-					return false;
-				}
-				if(str == "/") {
-					str = "";
-				}
-				let strs = str;
-				if(strs == "index") {
-					strs = '';
-				}
-				this.$router.push('/' + strs);
-			},
-			setBannerActive:function(val){
+			setBannerActive: function(val) {
 				this.$refs.carousel.setActiveItem(val)
+
+			},
+			//改变banner图当前索引
+			bannerChange(index) {
+				if(this.itemIndex > 2) {
+					this.itemIndex = -1
+				}
+				this.itemIndex++
 			}
 		},
 		computed: {
@@ -173,7 +178,8 @@
 					src: require('../../static/img/banner-1.jpg'),
 					title: this.$t('banner.banner1.title'),
 					title2: this.$t('banner.banner1.title2'),
-					txt: this.$t('banner.banner1.txt')
+					txt: this.$t('banner.banner1.txt'),
+					url: 'http://www.fomifx.com/download/Squirrel-Bonds_1.0.apk'
 				}, {
 					src: require('../../static/img/banner-2.jpg'),
 					title: this.$t('banner.banner2.title'),
@@ -183,7 +189,8 @@
 					src: require('../../static/img/banner-3.jpg'),
 					title: this.$t('banner.banner3.title'),
 					title2: this.$t('banner.banner3.title2'),
-					txt: this.$t('banner.banner3.txt')
+					txt: this.$t('banner.banner3.txt'),
+					url: 'http://www.fomifx.com/download/socialtrading-plus.apk'
 				}]
 			},
 			pluginList() {
@@ -195,27 +202,32 @@
 					img: require('../../static/img/plug-2.png'),
 					title: this.$t('plugin.p2.title'),
 					txt: this.$t('plugin.p2.txt'),
-					url:'bigdata'
+					url: 'bigdata'
 				}, {
 					img: require('../../static/img/plug-3.png'),
 					title: this.$t('plugin.p3.title'),
-					txt: this.$t('plugin.p3.txt')
+					txt: this.$t('plugin.p3.txt'),
+					url: 'Fomi佣金设置器.pdf'
 				}, {
 					img: require('../../static/img/plug-4.png'),
 					title: this.$t('plugin.p4.title'),
-					txt: this.$t('plugin.p4.txt')
+					txt: this.$t('plugin.p4.txt'),
+					url: 'Fomi持仓控制器.pdf'
 				}, {
 					img: require('../../static/img/plug-5.png'),
 					title: this.$t('plugin.p5.title'),
-					txt: this.$t('plugin.p5.txt')
+					txt: this.$t('plugin.p5.txt'),
+					url: 'Fomi对冲引擎.pdf'
 				}, {
 					img: require('../../static/img/plug-6.png'),
 					title: this.$t('plugin.p6.title'),
-					txt: this.$t('plugin.p6.txt')
+					txt: this.$t('plugin.p6.txt'),
+					url: 'Fomi配资管理器.pdf'
 				}, {
 					img: require('../../static/img/plug-7.png'),
 					title: this.$t('plugin.p7.title'),
-					txt: this.$t('plugin.p7.txt')
+					txt: this.$t('plugin.p7.txt'),
+					url: 'Fomi跟单达人.pdf'
 				}, {
 					img: require('../../static/img/plug-8.png'),
 					title: this.$t('plugin.p8.title'),
@@ -223,12 +235,13 @@
 				}, {
 					img: require('../../static/img/plug-9.png'),
 					title: this.$t('plugin.p9.title'),
-					txt: this.$t('plugin.p9.txt')
+					txt: this.$t('plugin.p9.txt'),
+					url: 'Fomi智能风险管理器.pdf'
 				}, {
 					img: require('../../static/img/plug-10.png'),
 					title: this.$t('plugin.p10.title'),
 					txt: this.$t('plugin.p10.txt'),
-					url:'table'
+					url: 'table'
 				}]
 			},
 			iMacList() {
@@ -351,9 +364,7 @@
 					}
 					.right {
 						width: 300px;
-						h3 {
-							
-						}
+						h3 {}
 						p {
 							margin-top: 10px;
 							word-wrap: break-word;
@@ -385,9 +396,7 @@
 						-webkit-transition: .5s;*/
 						width: 230vw/@w;
 						padding: 45vw/@w 0 60vw/@w 0;
-
 						margin: 0 auto;
-						
 						span {
 							display: block;
 							text-align: center;
@@ -401,12 +410,19 @@
 							color: rgba(0, 0, 0, 0.5);
 						}
 					}
-					div:hover{
+					div:hover {
 						background: #b61d22;
-						
 					}
-					div:hover span{
+					div:hover span {
 						color: white;
+					}
+				}
+				.custom-item-2.active {
+					div {
+						background: #b61d22;
+					}
+					div span {
+						color: white
 					}
 				}
 			}
@@ -488,7 +504,7 @@
 							font-size: 14vw/@w;
 						}
 					}
-					li:nth-of-type(1){
+					li:nth-of-type(1) {
 						background: #e61737;
 						color: white;
 					}
@@ -570,67 +586,66 @@
 			}
 		}
 	}
-	@media only screen and (max-width:768px){
-		.index{
-			.banner-1{
+	
+	@media only screen and (max-width:768px) {
+		.index {
+			.banner-1 {
 				padding-top: 180vw/@w;
-				padding-left:100vw/@w;
-				.content{
+				padding-left: 100vw/@w;
+				.content {
 					width: 800vw/@w;
-					h1{
+					h1 {
 						font-size: 20px;
 					}
-					h2{
+					h2 {
 						font-size: 10px;
 					}
-					.download{
+					.download {
 						width: 100px;
 						height: 20px;
 					}
 				}
 			}
-			.custom{
-				.container{
-					.custom-item{
-						
-					}
+			.custom {
+				.container {
+					.custom-item {}
 				}
 			}
-			.banner-2{
-				.el-carousel__container{
-					.content{
+			.banner-2 {
+				.el-carousel__container {
+					.content {
 						left: 10px;
 						top: 10px;
 						max-width: 190px;
-						p{
+						p {
 							font-size: 10px;
 							margin-top: 0;
 						}
-						.downloadBtn{
+						.downloadBtn {
 							margin-top: 5px;
 						}
 					}
 				}
 			}
-			.plugin{
-				.container{
-					h1{
+			.plugin {
+				.container {
+					h1 {
 						font-size: 20px;
 					}
-					ul{
-						li{
+					ul {
+						li {
 							width: 50%;
 						}
 					}
 				}
 			}
-			.iMac{
-				.container{
-					.content{
+			.iMac {
+				.container {
+					.content {
 						margin-top: 5px;
 						width: 300px;
-						ul{
-							li{
+						ul {
+							li {
 								line-height: 16px;
 								font-size: 10px;
 							}
@@ -638,21 +653,21 @@
 					}
 				}
 			}
-			.software{
-				.container{
-					h1{
+			.software {
+				.container {
+					h1 {
 						font-size: 20px;
-						
 					}
-					ul{
-							li{
-								width: 50%;
-							}
+					ul {
+						li {
+							width: 50%;
 						}
+					}
 				}
 			}
 		}
 	}
+	
 	@media only screen and (max-width:1300px) {
 		.index {
 			.custom {
