@@ -73,9 +73,15 @@
 						<h1>{{item.title}}</h1>
 						<h1>{{item.title2}}</h1>
 						<p>{{item.txt}}</p>
-						<span class="downloadBtn">
+						<!--<span class="downloadBtn">
 							立即下载
 						</span>
+						<img :src="item.wechat" class="wechat"/>-->
+						<span class="downloadBtn" v-for="i in item.btns" @mouseenter="showCode(i.url)" @mouseleave="hideCode">
+							{{i.name}}
+						</span>
+						<img :src="currentCode" class="wechat" v-show="wechatShow"/>
+						
 					</div>
 				</el-carousel-item>
 			</el-carousel>
@@ -134,7 +140,9 @@
 		},
 		data() {
 			return {
-				itemIndex: 0 //banner图当前索引
+				itemIndex: 0, //banner图当前索引
+				wechatShow:false,
+				currentCode:require('../../static/img/erweima.png')
 			}
 		},
 		methods: {
@@ -170,7 +178,15 @@
 					this.itemIndex = -1
 				}
 				this.itemIndex++
+			},
+			showCode(val){
+				this.wechatShow=true
+				this.currentCode=val
+			},
+			hideCode(){
+				this.wechatShow=false
 			}
+			
 		},
 		computed: {
 			bannerList() {
@@ -179,18 +195,37 @@
 					title: this.$t('banner.banner1.title'),
 					title2: this.$t('banner.banner1.title2'),
 					txt: this.$t('banner.banner1.txt'),
-					url: 'http://www.fomifx.com/download/Squirrel-Bonds_1.0.apk'
+					btns:[{
+						name:'扫码下载',
+						url:require('../../static/img/erweima.png')
+					}],
+					wechatShow:false
 				}, {
 					src: require('../../static/img/banner-2.jpg'),
 					title: this.$t('banner.banner2.title'),
 					title2: this.$t('banner.banner2.title2'),
-					txt: this.$t('banner.banner2.txt')
+					txt: this.$t('banner.banner2.txt'),
+					btns:[{
+						name:'MT4环境下载',
+						url:require('../../static/img/erweima.png')
+					},{
+						name:'MT5环境下载',
+						url:require('../../static/img/erweima.png')
+					}],
+					wechatShow:false
 				}, {
 					src: require('../../static/img/banner-3.jpg'),
 					title: this.$t('banner.banner3.title'),
 					title2: this.$t('banner.banner3.title2'),
 					txt: this.$t('banner.banner3.txt'),
-					url: 'http://www.fomifx.com/download/socialtrading-plus.apk'
+					btns:[{
+						name:'安卓手机下载',
+						url:require('../../static/img/erweima.png')
+					},{
+						name:'苹果手机下载',
+						url:require('../../static/img/erweima.png')
+					}],
+					wechatShow:false
 				}]
 			},
 			pluginList() {
@@ -444,6 +479,7 @@
 					}
 					p {
 						margin-top: 75vw/@w;
+						margin-bottom: 50vw/@w;
 						color: white;
 						font-size: 14vw/@w;
 					}
@@ -461,11 +497,19 @@
 						padding: 20vw/@w 80vw/@w;
 						cursor: pointer;
 						border-radius: 40px;
-						margin-top: 60vw/@w;
+						margin-top: 10vw/@w;
 					}
 					.downloadBtn:hover {
 						background: transparent;
 						color: #f9d681;
+					}
+					.wechat{
+						width: 150vw/@w;
+						height: 150vw/@w;
+						display: block;
+						position: absolute;
+						right: 0;
+						top: 300vw/@w;
 					}
 				}
 			}

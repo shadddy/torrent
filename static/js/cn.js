@@ -291,7 +291,9 @@ module.exports={
 			title:'Torrent 投资客软件系列',
 			txt1:'专业',
 			txt2:'易用',
-			txt3:'全面'
+			txt3:'全面',
+			btn1:'MT4 环境下载',
+			btn2:'MT5 环境下载'
 		},
 		part2:{
 			title:'Torrent-Trader',
@@ -313,7 +315,9 @@ module.exports={
 				txt1:'使用手册',
 				txt2:'升级文档',
 				txt3:'教学视频'
-			}
+			},
+			btn1:'安卓手机下载',
+			btn2:'苹果手机下载'
 		},
 		part4:{
 			title:'Squirrel Bonds',
@@ -361,7 +365,15 @@ module.exports={
 		},
 		part3:{
 			title:'常见问题',
-			
+			list:[{
+				title:'怎样下载使用TorrentTrader？'
+			},{
+				title:'使用TorrentTrader需要什么硬件要求？'
+			},{
+				title:'使用TorrentTrader是否有网络要求？'
+			},{
+				title:'使用TorrentTrader需要多少费用？'
+			}]
 		}
 	},
 	//点差页

@@ -34,8 +34,12 @@
 						</li>
 					</ul>
 					<div class="btn" @click="download('FomiFX MT4 For Windows.exe')">
-						{{$t('download.btn')}}
+						{{$t('download.part1.btn1')}}
 					</div>
+					<div class="btn" @click="download('FomiFX MT5 For Windows.exe')">
+						{{$t('download.part1.btn2')}}
+					</div>
+					<img :src="currentCode" v-show="codeShow" class="wechat"/>
 				</div>
 			</div>
 		</div>
@@ -60,9 +64,13 @@
 							<span class="link">{{$t('download.part3.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn" @click="download('FomiFX MT4 For Windows.exe')">
-						{{$t('download.btn')}}
+					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
+						{{$t('download.part1.btn1')}}
 					</div>
+					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
+						{{$t('download.part1.btn2')}}
+					</div>
+					<img :src="currentCode" v-show="codeShow" class="wechat"/>
 				</div>
 			</div>
 		</div>
@@ -87,9 +95,13 @@
 							<span class="link">{{$t('download.part4.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn">
-						{{$t('download.btn')}}
+					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
+						{{$t('download.part3.btn1')}}
 					</div>
+					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
+						{{$t('download.part3.btn2')}}
+					</div>
+					<img :src="currentCode" v-show="codeShow" class="wechat"/>
 				</div>
 			</div>
 		</div>
@@ -132,10 +144,23 @@
 			myHeader: header,
 			myFooter: footer
 		},
+		data(){
+			return{
+				currentCode:require('../../static/img/erweima.png'),
+				codeShow:false
+			}
+		},
 		methods:{
 			download(url) {
 				this.downloadFuc(url)
 			},
+			showCode(){
+//				this.currentCode=val
+				this.codeShow=true
+			},
+			hideCode(){
+				this.codeShow=false
+			}
 		},
 		computed: {
 			part1() {
@@ -245,7 +270,7 @@
 		text-align: center;
 		line-height: 66vw/@w;
 		font-size: 20vw/@w;
-		margin-top: 60vw/@w;
+		margin-top: 10vw/@w;
 		border: 1px solid #e71737;
 		color: white;
 		transition: .5s;
@@ -257,12 +282,20 @@
 	
 	.btn:hover {
 		background: transparent;
-		color: #f9d681;
+		color: #e71737;
+	}
+	.wechat{
+		width:150vw/@w;
+		height:150vw/@w;
+		position: absolute;
+		right: 0;
+		bottom: 0;
 	}
 	
 	.content_left {
 		padding-top: 200vw/@w;
 		width: 530vw/@w;
+		position: relative;
 		h1 {
 			color: #333333;
 			font-size: 70vw/@w;

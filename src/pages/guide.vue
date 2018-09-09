@@ -30,10 +30,8 @@
 			<div class="container">
 				<h1>{{$t('guide.part3.title')}}</h1>
 				<div class="content">
-					<my-collapse></my-collapse>
-					<my-collapse></my-collapse>
-					<my-collapse></my-collapse>
-					<my-collapse></my-collapse>
+					
+					<my-collapse v-for="item in questionList" :title="item.title" ></my-collapse>
 				</div>
 				
 			</div>
@@ -50,7 +48,18 @@
 	export default {
 		data(){
 			return{
-				activeName:'first'
+				activeName:'first',
+				questionList:[
+					{
+						title:this.$t('guide.part3.list[0].title')
+					},{
+						title:this.$t('guide.part3.list[1].title')
+					},{
+						title:this.$t('guide.part3.list[2].title')
+					},{
+						title:this.$t('guide.part3.list[3].title')
+					}
+				]
 			}
 		},
 		components: {

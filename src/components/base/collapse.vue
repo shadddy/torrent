@@ -2,7 +2,7 @@
 	<div class="collapse">
 		<div class="collapse-wrap">
 			<h2 @click="isDrop=!isDrop">
-				<span :class="isDrop?'act':null">></span>使用TorrentTrader需要什么硬件要求？
+				<span :class="isDrop?'act':null">></span>{{title}}
 			</h2>
 			<div class="collapse-content" v-show="isDrop">
 				<p>最低硬件要求：</p>
@@ -26,6 +26,12 @@
 
 <script>
 	export default {
+		props:{
+			title:{
+				type:String,
+				default:''
+			}
+		},
 		data() {
 			return {
 				isDrop: false
