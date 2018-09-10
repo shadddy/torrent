@@ -10,7 +10,14 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {'/api':{
+      target: 'http://qdrisong.com',
+      changeOrigin: true,
+      secure: false,//接受运行在https上的服务,
+      pathRewrite:{
+      	'^/api': ''
+      }
+      }},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

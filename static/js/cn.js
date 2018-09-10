@@ -166,7 +166,7 @@ module.exports={
 	//软件页
 	software_1:{
 		first:{
-			title:'Torrent-Trader 7.0',
+			title:'Fomi-Trader 7.0',
 			title2:'开启理财生活，更好用的看盘软件',
 			btn1:'MT4环境下载',
 			btn2:'MT5环境下载'
@@ -288,7 +288,7 @@ module.exports={
 	download:{
 		btn:'立即下载',
 		part1:{
-			title:'Torrent 投资客软件系列',
+			title:'Fomi 投资客软件系列',
 			txt1:'专业',
 			txt2:'易用',
 			txt3:'全面',
@@ -296,8 +296,8 @@ module.exports={
 			btn2:'MT5 环境下载'
 		},
 		part2:{
-			title:'Torrent-Trader',
-			title2:'Torrent-Trader为客户提供能够快速获取报价、高效订单执行的看盘软件，有效消除重复报价、无效订单等常见问题，提升交易和操作体验。',
+			title:'Fomi-Trader',
+			title2:'Fomi-Trader为客户提供能够快速获取报价、高效订单执行的看盘软件，有效消除重复报价、无效订单等常见问题，提升交易和操作体验。',
 			txt1:'适用所有交易客户',
 			txt2:'建议在Windows系统下运行使用',
 			txt3:{
@@ -345,11 +345,11 @@ module.exports={
 	//指南页
 	guide:{
 		part1:{
-			title:'Torrent软件使用指南'
+			title:'Fomi软件使用指南'
 		},
 		part2:{
 			title:'使用指南',
-			title1:'TorrentTrader 7.0',
+			title1:'FomifxTrader 7.0',
 			title2:'MobileTraderV5.1',
 			title3:'Squirrel Bonds 1.0',
 			title4:'Socialtrading Plus',
@@ -366,13 +366,13 @@ module.exports={
 		part3:{
 			title:'常见问题',
 			list:[{
-				title:'怎样下载使用TorrentTrader？'
+				title:'怎样下载使用FomifxTrader？'
 			},{
-				title:'使用TorrentTrader需要什么硬件要求？'
+				title:'使用FomifxTrader需要什么硬件要求？'
 			},{
-				title:'使用TorrentTrader是否有网络要求？'
+				title:'使用FomifxTrader是否有网络要求？'
 			},{
-				title:'使用TorrentTrader需要多少费用？'
+				title:'使用FomifxTrader需要多少费用？'
 			}]
 		}
 	},

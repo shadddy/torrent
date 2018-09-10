@@ -151,7 +151,7 @@
 				//				this.$func('http://www.fomifx.com/download/FomiFX MT5 For Windows.exe')
 				this.downloadFuc(url)
 			},
-			Router: function(index, str) {
+			Router: function(index, str) { 
 				if(index == 1 || index == 9) {
 					if(str == "" || str == undefined) {
 						return false;
@@ -188,6 +188,16 @@
 			}
 			
 		},
+		// mounted(){
+		// 	$.ajax({
+		// 		url:'/mock/5b95d91552083970dd866e49/example/mock',
+		// 		method:'get',
+		// 		data:{},
+		// 		success:function(res){
+		// 			console.log(res.data.projects)
+		// 		}
+		// 	})
+		// },
 		computed: {
 			bannerList() {
 				return [{
@@ -647,6 +657,8 @@
 					.download {
 						width: 100px;
 						height: 20px;
+						font-size: 10px;
+						line-height: 20px;
 					}
 				}
 			}

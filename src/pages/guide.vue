@@ -30,8 +30,7 @@
 			<div class="container">
 				<h1>{{$t('guide.part3.title')}}</h1>
 				<div class="content">
-					
-					<my-collapse v-for="item in questionList" :title="item.title" ></my-collapse>
+					<my-collapse v-for="(item,index) in questionList" :title="item.title" :key="index"></my-collapse>
 				</div>
 				
 			</div>
@@ -86,21 +85,21 @@
 				return[{
 					order:'first',
 					name:this.$t('guide.part2.title1'),
-					service:'Torrent'+this.$t('guide.part2.service'),
+					service:'Fomifx'+this.$t('guide.part2.service'),
 					service2:this.$t('guide.part2.service2'),
 					tech:'Torrent'+this.$t('guide.part2.tech'),
 					tech2:this.$t('guide.part2.tech2'),
 					list:[{
-						name:'Torrent'+this.$t('guide.part2.txt1')
+						name:'Fomifx'+this.$t('guide.part2.txt1')
 					},{
-						name:'Torrent7.0'+this.$t('guide.part2.txt2')
+						name:'Fomifx7.0'+this.$t('guide.part2.txt2')
 					},{
-						name:'Torrent6.9'+this.$t('guide.part2.txt2')
+						name:'Fomifx6.9'+this.$t('guide.part2.txt2')
 					}]
 				},{
 					order:'second',
 					name:this.$t('guide.part2.title2'),
-					service:'Mobile'+this.$t('guide.part2.service'),
+					service:'Fomifx'+this.$t('guide.part2.service'),
 					service2:this.$t('guide.part2.service2'),
 					tech:'Mobile'+this.$t('guide.part2.tech'),
 					tech2:this.$t('guide.part2.tech2'),
@@ -114,7 +113,7 @@
 				},{
 					order:'third',
 					name:this.$t('guide.part2.title3'),
-					service:'Squirrel'+this.$t('guide.part2.service'),
+					service:'Fomifx'+this.$t('guide.part2.service'),
 					service2:this.$t('guide.part2.service2'),
 					tech:'Squirrel'+this.$t('guide.part2.tech'),
 					tech2:this.$t('guide.part2.tech2'),
@@ -128,7 +127,7 @@
 				},{
 					order:'forth',
 					name:this.$t('guide.part2.title4'),
-					service:'Socialtrading'+this.$t('guide.part2.service'),
+					service:'Fomifx'+this.$t('guide.part2.service'),
 					service2:this.$t('guide.part2.service2'),
 					tech:'Socialtrading'+this.$t('guide.part2.tech'),
 					tech2:this.$t('guide.part2.tech2'),
