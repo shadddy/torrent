@@ -49,15 +49,15 @@
 			return{
 				activeName:'first',
 				questionList:[
-					{
-						title:this.$t('guide.part3.list[0].title')
-					},{
-						title:this.$t('guide.part3.list[1].title')
-					},{
-						title:this.$t('guide.part3.list[2].title')
-					},{
-						title:this.$t('guide.part3.list[3].title')
-					}
+					// {
+					// 	title:this.$t('guide.part3.list[0].title')
+					// },{
+					// 	title:this.$t('guide.part3.list[1].title')
+					// },{
+					// 	title:this.$t('guide.part3.list[2].title')
+					// },{
+					// 	title:this.$t('guide.part3.list[3].title')
+					// }
 				]
 			}
 		},
@@ -66,6 +66,23 @@
 			myFooter: footer,
 			tabItem,
 			myCollapse:collapse
+		},
+		mounted(){
+			let that=this
+			$.ajax({
+				url:'/api/interface/qaq.php',
+				method:'get',
+				data:{},
+				success:function(res){
+					var obj=JSON.parse(res)
+					for(var i in obj){
+						that.questionList.push({
+							title:obj[i].title
+						})
+					}
+					console.log(that.questionList)
+				}
+			})
 		},
 		computed: {
 			part1() {
@@ -80,7 +97,7 @@
 					icon: require('../../static/img/download/part1-icon-3.png')
 				}]
 			},
-			
+		
 			useList(){
 				return[{
 					order:'first',

@@ -188,16 +188,6 @@
 			}
 			
 		},
-		// mounted(){
-		// 	$.ajax({
-		// 		url:'/mock/5b95d91552083970dd866e49/example/mock',
-		// 		method:'get',
-		// 		data:{},
-		// 		success:function(res){
-		// 			console.log(res.data.projects)
-		// 		}
-		// 	})
-		// },
 		computed: {
 			bannerList() {
 				return [{
