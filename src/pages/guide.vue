@@ -30,7 +30,7 @@
 			<div class="container">
 				<h1>{{$t('guide.part3.title')}}</h1>
 				<div class="content">
-					<my-collapse v-for="(item,index) in questionList" :title="item.title" :key="index"></my-collapse>
+					<my-collapse v-for="(item,index) in questionList" :title="item.title" :content="item.content" :key="index"></my-collapse>
 				</div>
 				
 			</div>
@@ -44,6 +44,7 @@
 	import footer from '@/components/footer'
 	import tabItem from '@/components/base/tabItem'
 	import collapse from '@/components/base/collapse'
+	import {baseUrl} from '@/config/index'
 	export default {
 		data(){
 			return{
@@ -70,17 +71,21 @@
 		mounted(){
 			let that=this
 			$.ajax({
-				url:'/api/interface/qaq.php',
-				method:'get',
-				data:{},
+				url:baseUrl+'qaq.php',
+				method:'post',
+				data:{
+					language:1
+				},
 				success:function(res){
 					var obj=JSON.parse(res)
 					for(var i in obj){
+						var _content=obj[i].content.replace(/&lt;/gim,'<').replace(/&gt;/gim,'>')
 						that.questionList.push({
-							title:obj[i].title
+							title:obj[i].title,
+							content:_content
 						})
 					}
-					console.log(that.questionList)
+
 				}
 			})
 		},

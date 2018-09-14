@@ -80,8 +80,8 @@
 						<span class="downloadBtn" v-for="i in item.btns" @mouseenter="showCode(i.url)" @mouseleave="hideCode">
 							{{i.name}}
 						</span>
-						<img :src="currentCode" class="wechat" v-show="wechatShow"/>
-						
+						<img :src="currentCode" class="wechat" v-show="wechatShow" />
+
 					</div>
 				</el-carousel-item>
 			</el-carousel>
@@ -141,9 +141,22 @@
 		data() {
 			return {
 				itemIndex: 0, //banner图当前索引
-				wechatShow:false,
-				currentCode:require('../../static/img/erweima.png')
+				wechatShow: false,
+				currentCode: require('../../static/img/erweima.png')
 			}
+		},
+		mounted() {
+			$.ajax({
+				type: 'post',
+				url: '/api/interface/qaq.php',
+				data:{
+					language:2
+				},
+				dataType: 'json',
+				success: function(data) {
+					console.log(data)
+				}
+			})
 		},
 		methods: {
 			download(url) {
@@ -151,7 +164,7 @@
 				//				this.$func('http://www.fomifx.com/download/FomiFX MT5 For Windows.exe')
 				this.downloadFuc(url)
 			},
-			Router: function(index, str) { 
+			Router: function(index, str) {
 				if(index == 1 || index == 9) {
 					if(str == "" || str == undefined) {
 						return false;
@@ -164,7 +177,7 @@
 						strs = '';
 					}
 					this.$router.push('/' + strs);
-				}else{
+				} else {
 					this.download(str)
 				}
 			},
@@ -179,14 +192,14 @@
 				}
 				this.itemIndex++
 			},
-			showCode(val){
-				this.wechatShow=true
-				this.currentCode=val
+			showCode(val) {
+				this.wechatShow = true
+				this.currentCode = val
 			},
-			hideCode(){
-				this.wechatShow=false
+			hideCode() {
+				this.wechatShow = false
 			}
-			
+
 		},
 		computed: {
 			bannerList() {
@@ -195,37 +208,37 @@
 					title: this.$t('banner.banner1.title'),
 					title2: this.$t('banner.banner1.title2'),
 					txt: this.$t('banner.banner1.txt'),
-					btns:[{
-						name:'扫码下载',
-						url:require('../../static/img/erweima.png')
+					btns: [{
+						name: '扫码下载',
+						url: require('../../static/img/erweima.png')
 					}],
-					wechatShow:false
+					wechatShow: false
 				}, {
 					src: require('../../static/img/banner-2.jpg'),
 					title: this.$t('banner.banner2.title'),
 					title2: this.$t('banner.banner2.title2'),
 					txt: this.$t('banner.banner2.txt'),
-					btns:[{
-						name:'MT4环境下载',
-						url:require('../../static/img/erweima.png')
-					},{
-						name:'MT5环境下载',
-						url:require('../../static/img/erweima.png')
+					btns: [{
+						name: 'MT4环境下载',
+						url: require('../../static/img/erweima.png')
+					}, {
+						name: 'MT5环境下载',
+						url: require('../../static/img/erweima.png')
 					}],
-					wechatShow:false
+					wechatShow: false
 				}, {
 					src: require('../../static/img/banner-3.jpg'),
 					title: this.$t('banner.banner3.title'),
 					title2: this.$t('banner.banner3.title2'),
 					txt: this.$t('banner.banner3.txt'),
-					btns:[{
-						name:'安卓手机下载',
-						url:require('../../static/img/erweima.png')
-					},{
-						name:'苹果手机下载',
-						url:require('../../static/img/erweima.png')
+					btns: [{
+						name: '安卓手机下载',
+						url: require('../../static/img/erweima.png')
+					}, {
+						name: '苹果手机下载',
+						url: require('../../static/img/erweima.png')
 					}],
-					wechatShow:false
+					wechatShow: false
 				}]
 			},
 			pluginList() {
@@ -503,7 +516,7 @@
 						background: transparent;
 						color: #f9d681;
 					}
-					.wechat{
+					.wechat {
 						width: 150vw/@w;
 						height: 150vw/@w;
 						display: block;
