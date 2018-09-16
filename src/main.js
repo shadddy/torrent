@@ -7,6 +7,8 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueI18n from 'vue-i18n'
+import vuex from 'vue'
+import store from './store'
 Vue.prototype.$echarts=echarts
 Vue.use(ElementUI)
 Vue.use(VueI18n)
@@ -32,6 +34,7 @@ new Vue({
   render:h=>h(App),
   router,
   i18n,
+  store,
   components: { App },
   template: '<App/>'
 })

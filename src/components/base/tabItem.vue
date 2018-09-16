@@ -4,7 +4,7 @@
 			<div>
 				<div class="left-wrap">
 					<div>
-						<h3>{{mylist.service}}</h3>
+						<h3>Fomifx{{$t('guide.part2.service')}}</h3>
 						<h6>24小时为您服务</h6>
 						<span>使用咨询</span>
 					</div>
@@ -17,10 +17,13 @@
 			</div>
 			<div>
 				<ul>
-					<li v-for="item in mylist.list">
-						<span class="listItem">{{item.name}}</span>
+					<li v-for="item in mylist"  @click='openMark'>
+						<span class="listItem">{{item.title}}</span>
 						<span class="date">
-						2018-06-05
+						{{item.time|capitalize}}
+					</span>
+					<span v-show="false">
+						{{item.content}}
 					</span>
 					</li>
 				</ul>
@@ -31,9 +34,9 @@
 
 <script>
 	export default {
-		props:{
-			mylist:{
-				
+		props: {
+			mylist: {
+
 			}
 		},
 		data() {
@@ -50,6 +53,21 @@
 					name: '5'
 				}]
 			}
+		},
+		methods:{
+			openMark(event){
+				console.log(event.currentTarget.childNodes)
+				var _title=event.currentTarget.childNodes[0].innerText
+				var _content=event.currentTarget.childNodes[4].innerText
+				this.$emit('openMark',{title:_title,content:_content})
+			}
+		},
+		filters: {
+			capitalize: function(value) {
+				if(!value) return ''
+				value = value.split(' ')[0]
+				return value
+			}
 		}
 	}
 </script>
@@ -62,6 +80,7 @@
 			display: flex;
 			div {
 				width: 50%;
+				overflow: hidden;
 			}
 			.left-wrap {
 				display: flex;
@@ -70,20 +89,20 @@
 				background: url(../../../static/img/guide/part2-1.png) center no-repeat;
 				padding: 100px 50px;
 				border-radius: 10px;
-				h3{
+				h3 {
 					font-size: 20px;
 					color: white;
 					font-weight: 500;
 					text-align: center;
 				}
-				h6{
+				h6 {
 					font-size: 14px;
 					color: #ccc;
 					font-weight: 500;
 					text-align: center;
 					margin: 15px 0;
 				}
-				span{
+				span {
 					display: block;
 					text-align: center;
 					border: 1px solid #f9d681;
@@ -113,15 +132,16 @@
 			}
 		}
 	}
+	
 	@media only screen and (max-width: 768px) {
-		.tabItem{
-			.content{
+		.tabItem {
+			.content {
 				flex-direction: column;
-				div{
+				div {
 					width: 100%;
-					.left-wrap{
+					.left-wrap {
 						padding: 30px 20px;
-						div{
+						div {
 							display: flex;
 							flex-direction: column;
 							justify-content: space-between;
@@ -129,6 +149,6 @@
 					}
 				}
 			}
-		}	
+		}
 	}
 </style>

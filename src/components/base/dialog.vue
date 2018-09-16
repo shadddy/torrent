@@ -1,19 +1,30 @@
 <template>
-	<div>
-		<div class="dialog-wrap" v-if="isShow">
+		<div class="dialog-wrap" v-show="markShow">
 			<div class="dialog-content" >
 				<span class="dialog-close" @click="closeMyself">x</span>
-				<slot>empty</slot>
+				<h3>
+					{{markTitle}}
+				</h3>
+				<div class="content" v-html="markContent">
+					{{markContent}}
+				</div>
 			</div>
 		</div>
-	</div>
 </template>
 
 <script>
 	
 	export default{
 		props:{
-			title:{
+			markTitle:{
+				type:String,
+				default:''
+			},
+			markShow:{
+				type:Boolean,
+				default:false
+			},
+			markContent:{
 				type:String,
 				default:''
 			}
@@ -25,8 +36,8 @@
 		},
 		methods:{
 			closeMyself(){
-				this.isShow=false
-			},
+				this.$emit('closeMyself')
+			}
 		}
 	}
 </script>
@@ -36,13 +47,13 @@
 		position: fixed;
 		width: 100%;
 		height: 100%;
-		z-index: 1000;
+		z-index: 10000;
 		top: 0;
 		left: 0;
 		background: rgba(0,0,0,0.5);
 		
 		.dialog-content{
-			
+			padding-top: 20px;
 			max-width: 700px;
 			width: 50%;
 			position: fixed;
@@ -50,7 +61,8 @@
 			background: #fff;
 			top: 20%;
 			left: 50%;
-			margin-left: -25%;
+			transform: translate(-50%,-50%);
+			
 			z-index: 10;
 			border: 2px solid #464068;
 			line-height: 1.6;
@@ -62,6 +74,13 @@
 				right: 15px;
 				top: 0px;
 				cursor: pointer;
+			}
+			h3{
+				text-align: center;
+			}
+			.content{
+				width: 100%;
+				padding: 20px;
 			}
 		}
 	}

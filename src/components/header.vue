@@ -96,8 +96,10 @@
 				// this.isLang = !this.isLang;
 				if(this.$i18n.locale == 'EN') {
 					this.$i18n.locale = 'CN';
+					this.$store.state.language=false
 				} else {
 					this.$i18n.locale = 'EN';
+					this.$store.state.language=true
 				};
 			},
 			// 切换语言
