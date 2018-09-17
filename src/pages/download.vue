@@ -126,9 +126,10 @@
 							<span class="link">{{$t('download.part5.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn">
+					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
 						{{$t('download.btn')}}
 					</div>
+					<img :src="currentCode" v-show="codeShow" class="wechat"/>
 				</div>
 			</div>
 		</div>

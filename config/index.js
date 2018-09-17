@@ -12,7 +12,7 @@ module.exports = {
 		assetsPublicPath: '/',
 		proxyTable: {
 			'/api': {
-				target: 'http://www.fomifx.com/',
+				target: 'http://software.fomifx.com/',
 				changeOrigin: true,
 				secure: false, //接受运行在https上的服务,
 				pathRewrite: {

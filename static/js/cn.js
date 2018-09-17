@@ -331,10 +331,10 @@ module.exports={
 			}
 		},
 		part5:{
-			title:'Mobile-Trader',
-			title2:'Mobile-Trader为客户提供随身便捷看盘软件，可查看实时新闻、公告、预警、报表，进行数据分析处理。提供实时行情和交易功能，界面友好，下单灵活。',
-			txt1:'适用所有交易客户',
-			txt2:'建议在Android或IOS系统下运行使用',
+			title:'Socialtrading Plus',
+			title2:'Socialtrading plus为客户提供全球范围内的跟单信号，帮助客户快速设置跟单类型，筛选跟单对象，选择适合的信号进行投资，并有效实行风控和反向跟单。',
+			txt1:'专业级跟单客户',
+			txt2:'建议在Android、IOS或Windows系统下使用',
 			txt3:{
 				txt1:'使用手册',
 				txt2:'升级文档',
