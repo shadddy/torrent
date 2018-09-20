@@ -7,7 +7,7 @@
 				<div class="content">
 					<h1>{{$t('index.banner1.title')}}</h1>
 					<h2>{{$t('index.banner1.title2')}}</h2>
-					<div class="download" @click='download("FomiFX MT4 For Windows.exe")'>{{$t('index.banner1.btn')}}</div>
+					<div class="download" @click='Router(1,"download")'>{{$t('index.banner1.btn')}}</div>
 				</div>
 			</div>
 		</div>
@@ -39,9 +39,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="container">
-				<div class="custom-item-2" @mouseenter="setBannerActive(0)">
-					<div>
+			<div class="container banner-btn">
+				<div class="custom-item-2 " @mouseenter="setBannerActive(0)">
+					<div :class="bannerActive==0?'act':null">
 						<span>松鼠快投APP</span>
 						<span>新手用户首选软件</span>
 					</div>
@@ -49,14 +49,14 @@
 				</div>
 
 				<div class="custom-item-2" @mouseenter="setBannerActive(1)">
-					<div>
+					<div :class="bannerActive==1?'act':null">
 						<span>手机炒汇理财</span>
 						<span>随身的财富管家</span>
 					</div>
 
 				</div>
 				<div class="custom-item-2" @mouseenter="setBannerActive(2)">
-					<div>
+					<div :class="bannerActive==2?'act':null">
 						<span>智能跟单社区</span>
 						<span>轻松下单轻松投</span>
 					</div>
@@ -142,7 +142,8 @@
 			return {
 				itemIndex: 0, //banner图当前索引
 				wechatShow: false,
-				currentCode: require('../../static/img/erweima.png')
+				currentCode: require('../../static/img/erweima.png'),
+				bannerActive:1
 			}
 		},
 		mounted() {
@@ -154,14 +155,12 @@
 				},
 				dataType: 'json',
 				success: function(data) {
-					console.log(data)
 				}
 			})
 		},
 		methods: {
 			download(url) {
-				//				window.open('http://www.fomifx.com/download/FomiFX MT5 For Windows.exe')
-				//				this.$func('http://www.fomifx.com/download/FomiFX MT5 For Windows.exe')
+				
 				this.downloadFuc(url)
 			},
 			Router: function(index, str) {
@@ -182,15 +181,24 @@
 				}
 			},
 			setBannerActive: function(val) {
+				this.bannerActive=val
 				this.$refs.carousel.setActiveItem(val)
 
 			},
 			//改变banner图当前索引
 			bannerChange(index) {
+				
 				if(this.itemIndex > 2) {
 					this.itemIndex = -1
 				}
+//				if(this.itemIndex==-1){
+//					this.bannerActive=0
+//				}else{
+//					this.bannerActive=this.itemIndex
+//				}
+//				
 				this.itemIndex++
+				
 			},
 			showCode(val) {
 				this.wechatShow = true
@@ -458,12 +466,19 @@
 							color: rgba(0, 0, 0, 0.5);
 						}
 					}
-					div:hover {
+					div.act{
+						background: #b61d22;
+						
+					}
+					div.act span{
+						color: white;
+					}
+					/*div:hover {
 						background: #b61d22;
 					}
 					div:hover span {
 						color: white;
-					}
+					}*/
 				}
 				.custom-item-2.active {
 					div {
