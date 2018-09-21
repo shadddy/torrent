@@ -108,7 +108,8 @@
 			},
 			//打开登录界面
 			loginFunc:function(){
-				this.loginShow=true
+//				this.loginShow=true
+				window.location.href="http://my.fomifx.com/zh/Account/LogOn"
 			},
 			closeLogin:function(){
 				this.loginShow=false
@@ -172,7 +173,7 @@
 		.container {
 			.logo {
 				margin-top: 20px;
-				width: 90px;
+				width: 116px;
 				height: 36px;
 				display: inline-block;
 				cursor: pointer;

@@ -19,7 +19,7 @@ module.exports={
 	banner:{
 		banner1:{
 			title:'Squirrel Bonds 1.0',
-			title2:'火爆上线',
+			title2:'试用版火爆上线',
 			txt:'指尖上的投资利器，适合新手及年轻人的APP，严选多种情绪交易分析，一键快速下单，更简单更智能，投资客的社区，自己发声。'
 		},
 		banner2:{
@@ -229,7 +229,7 @@ module.exports={
 		first:{
 			title:'Squirrel Bonds 1.0',
 			title2:'新锐人群喜爱的轻松理财APP',
-			btn1:'安卓手机下载',
+			btn1:'立即下载',
 			btn2:'苹果手机下载'
 		},
 		second:{
@@ -316,8 +316,7 @@ module.exports={
 				txt2:'升级文档',
 				txt3:'教学视频'
 			},
-			btn1:'安卓手机下载',
-			btn2:'苹果手机下载'
+			btn1:'立即下载'
 		},
 		part4:{
 			title:'Squirrel Bonds',

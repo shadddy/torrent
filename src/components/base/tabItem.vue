@@ -6,12 +6,12 @@
 					<div>
 						<h3>Fomifx{{$t('guide.part2.service')}}</h3>
 						<h6>24小时为您服务</h6>
-						<span>使用咨询</span>
+						<span @click="toQ(2093003828)">使用咨询</span>
 					</div>
 					<div>
 						<h3>技术研发部</h3>
 						<h6>专注产品定制升级</h6>
-						<span>技术咨询</span>
+						<span @click="toQ(2063317281)">技术咨询</span>
 					</div>
 				</div>
 			</div>
@@ -60,6 +60,9 @@
 				var _title=event.currentTarget.childNodes[0].innerText
 				var _content=event.currentTarget.childNodes[4].innerText
 				this.$emit('openMark',{title:_title,content:_content})
+			},
+			toQ(val){
+				window.open("http://wpa.qq.com/msgrd?v=3&uin="+val+"&site=qq&menu=yes")
 			}
 		},
 		filters: {
@@ -113,6 +116,7 @@
 					font-size: 14px;
 					height: 30px;
 					line-height: 30px;
+					cursor: pointer;
 				}
 			}
 			li {

@@ -9,7 +9,7 @@
 					<p>{{$t('about.banner1.title2')}}</p>
 					<div class="btn-box">
 						<span @click="Router('download')">{{$t('about.banner1.download')}}</span>
-						<span @click="Router('register')">{{$t('about.banner1.register')}}</span>
+						<span @click="register">{{$t('about.banner1.register')}}</span>
 					</div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 				</ul>
 				<div class="btn-box">
 					<span @click="Router('download')">{{$t('about.banner1.download')}}</span>
-					<span @click="Router('register')">{{$t('about.banner1.register')}}</span>
+					<span @click="register">{{$t('about.banner1.register')}}</span>
 				</div>
 			</div>
 		</div>
@@ -104,6 +104,9 @@
 			},
 			Router(url){
 				this.$router.push('/'+url)
+			},
+			register(){
+				window.location.href="http://my.fomifx.com/zh/Forms/LiveAccount"
 			}
 		},
 

@@ -39,7 +39,7 @@
 					<div class="btn" @click="download('FomiFX MT5 For Windows.exe')">
 						{{$t('download.part1.btn2')}}
 					</div>
-					<img :src="currentCode" v-show="codeShow" class="wechat"/>
+					<!--<img :src="currentCode" v-show="codeShow" class="wechat" />-->
 				</div>
 			</div>
 		</div>
@@ -64,14 +64,20 @@
 							<span class="link">{{$t('download.part3.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
+					<div class="btn" @mouseenter="mobileShowCode1" @mouseleave="mobileHideCode" @click="download('FomiFX MT4 For Windows.exe')">
 						{{$t('download.part1.btn1')}}
 					</div>
-					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
+					<div class="btn" @mouseenter="mobileShowCode2" @mouseleave="mobileHideCode" @click="download('FomiFX MT5 For Windows.exe')">
 						{{$t('download.part1.btn2')}}
 					</div>
-					<img :src="currentCode" v-show="codeShow" class="wechat"/>
+
 				</div>
+			</div>
+			<div class="code-box" v-show="mobileCodeShow">
+				<div>
+					<h3>安卓手机下载</h3><img :src="mobileCodeCur1" /></div>
+				<div>
+					<h3>苹果手机下载</h3><img :src="mobileCodeCur2" /></div>
 			</div>
 		</div>
 		<div class="part-4">
@@ -95,13 +101,10 @@
 							<span class="link">{{$t('download.part4.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
+					<div class="btn" @mouseenter="" @mouseleave="" @click="download('SquirrelBond.apk')">
 						{{$t('download.part3.btn1')}}
 					</div>
-					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
-						{{$t('download.part3.btn2')}}
-					</div>
-					<img :src="currentCode" v-show="codeShow" class="wechat"/>
+					<!--					<img :src="currentCode" v-show="codeShow" class="wechat"/>-->
 				</div>
 			</div>
 		</div>
@@ -126,10 +129,10 @@
 							<span class="link">{{$t('download.part5.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn" @mouseenter="showCode" @mouseleave="hideCode">
+					<div class="btn" @mouseenter="socialShowCode" @mouseleave="socialHideCode" @click="download('socialtrading-plus.apk')">
 						{{$t('download.btn')}}
 					</div>
-					<img :src="currentCode" v-show="codeShow" class="wechat"/>
+					<img :src="socialCode" v-show="socialShow" class="wechat" />
 				</div>
 			</div>
 		</div>
@@ -145,23 +148,47 @@
 			myHeader: header,
 			myFooter: footer
 		},
-		data(){
-			return{
-				currentCode:require('../../static/img/erweima.png'),
-				codeShow:false
+		data() {
+			return {
+				currentCode: require('../../static/img/erweima.png'),
+				socialCode: require('../../static/img/social-code.png'),
+				
+				
+				mobileCode1:require('../../static/img/download/MobileTrader For Android（MT4）.png'),
+				mobileCode2:require('../../static/img/download/MobileTrader For IOS（MT4）.png'),
+				mobileCode3:require('../../static/img/download/MobileTrader For Android（MT5）.png'),
+				mobileCode4:require('../../static/img/download/MobileTrader For IOS（MT5）.png'),
+				
+				mobileCodeCur1:require('../../static/img/download/MobileTrader For Android（MT4）.png'),
+				mobileCodeCur2:require('../../static/img/download/MobileTrader For IOS（MT4）.png'),
+				mobileCodeShow: false,
+				
+				socialShow:false
 			}
 		},
-		methods:{
+		methods: {
 			download(url) {
 				this.downloadFuc(url)
 			},
-			showCode(){
-//				this.currentCode=val
-				this.codeShow=true
+			mobileShowCode1(){
+				this.mobileCodeShow=true
+				this.mobileCodeCur1=this.mobileCode1
+				this.mobileCodeCur2=this.mobileCode2
 			},
-			hideCode(){
-				this.codeShow=false
-			}
+			mobileShowCode2(){
+				this.mobileCodeShow=true
+				this.mobileCodeCur1=this.mobileCode3
+				this.mobileCodeCur2=this.mobileCode4
+			},
+			mobileHideCode(){
+				this.mobileCodeShow=false
+			},
+			socialShowCode(){
+				this.socialShow=true
+			},
+			socialHideCode(){
+				this.socialShow=false
+			},
 		},
 		computed: {
 			part1() {
@@ -223,16 +250,17 @@
 	}
 	
 	.part-3 {
+		position: relative;
 		width: 100%;
 		height: 839vw/@w ;
 		background: url(../../static/img/download/download-3.jpg) no-repeat center;
 		background-size: 100% 100%;
-		.content_right{
+		.content_right {
 			width: 560vw/@w;
-			h1{
-			background: #e71737;
-			padding: 14vw/@w 20vw/@w;
-		}
+			h1 {
+				background: #e71737;
+				padding: 14vw/@w 20vw/@w;
+			}
 		}
 	}
 	
@@ -285,9 +313,10 @@
 		background: transparent;
 		color: #e71737;
 	}
-	.wechat{
-		width:150vw/@w;
-		height:150vw/@w;
+	
+	.wechat {
+		width: 150vw/@w;
+		height: 150vw/@w;
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -360,30 +389,54 @@
 		}
 	}
 	
+	.code-box {
+		width: 360vw/@w;
+		display: flex;
+		position: absolute;
+		right: 150vw/@w;
+		bottom: 0;
+		div {
+			width: 50%;
+			padding: 10px;
+			h3 {
+				color: white;
+				font-weight: 500;
+				text-align: center;
+			}
+			img {
+				width: 100%;
+			}
+		}
+	}
+	
 	@media only screen and (max-width: 768px) {
-		.part-2 ,.part-3,.part-4,.part-5{
+		.part-2,
+		.part-3,
+		.part-4,
+		.part-5 {
 			height: auto;
 			padding: 20px;
 			.container {}
 		}
-		.part-2{
+		.part-2 {
 			background: white;
 		}
-		.part-3{
+		.part-3 {
 			background: black;
 		}
-		.part-4{
+		.part-4 {
 			background: white;
 		}
-		.part-5{
+		.part-5 {
 			background: #f5f5f5;
 		}
-		.content_left,.content_right {
+		.content_left,
+		.content_right {
 			width: 100%;
 			padding-top: 10px;
 			position: relative;
 			top: 0;
-			.btn{
+			.btn {
 				width: 100px;
 				height: 25px;
 				line-height: 25px;

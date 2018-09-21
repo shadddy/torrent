@@ -6,7 +6,7 @@
 					<h1>{{$t('software_4.first.title')}}</h1>
 					<h3>{{$t('software_4.first.title2')}}</h3>
 					<div class="btnBox">
-						<span>{{$t('software_4.first.btn')}}</span>
+						<span @click="swift">{{$t('software_4.first.btn')}}</span>
 					</div>
 				</div>
 			</div>

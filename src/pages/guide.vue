@@ -99,7 +99,7 @@
 		mounted() {
 			let that = this
 			$.ajax({
-				url: baseUrl + 'qaq.php',
+				url: baseUrl + 'interface/qaq.php',
 				method: 'post',
 				data: {
 					language: 1
@@ -118,7 +118,7 @@
 				}
 			})
 			$.ajax({
-				url: baseUrl + 'qaq.php',
+				url: baseUrl + 'interface/qaq.php',
 				method: 'post',
 				data: {
 					language: 2
@@ -135,57 +135,9 @@
 
 				}
 			})
-//
-//			for(var j = 0; j < 4; j++) {
-//				$.ajax({
-//					url: baseUrl + 'biaoqian.php',
-//					method: 'post',
-//					async: false,
-//					data: {
-//						language: 1,
-//						type: j + 1,
-//
-//					},
-//					dataType: 'json',
-//					success: function(res) {
-//						for(var i in res) {
-//							
-//							var _content = res[i].content.replace(/&lt;/gim, '<').replace(/&gt;/gim, '>')
-//							that.markListCn[j].push({
-//								title: res[i].title,
-//								time: res[i].create_time,
-//								content: _content
-//							})
-//						}
-//					}
-//				})
-//				
-//				$.ajax({
-//					url: baseUrl + 'biaoqian.php',
-//					method: 'post',
-//					async: false,
-//					data: {
-//						language: 2,
-//						type: j + 1,
-//
-//					},
-//					dataType: 'json',
-//					success: function(res) {
-//						for(var i in res) {
-//							
-//							var _content = res[i].content.replace(/&lt;/gim, '<').replace(/&gt;/gim, '>')
-//							that.markListEn[j].push({
-//								title: res[i].title,
-//								time: res[i].create_time,
-//								content: _content
-//							})
-//						}
-//					}
-//				})	
-//			}
 			
 			$.ajax({
-					url: baseUrl + 'biaoqian.php',
+					url: baseUrl + 'interface/biaoqian.php',
 					method: 'post',
 					async: true,
 					data: {
@@ -208,7 +160,7 @@
 				})
 			
 			$.ajax({
-					url: baseUrl + 'biaoqian.php',
+					url: baseUrl + 'interface/biaoqian.php',
 					method: 'post',
 					async: true,
 					data: {
@@ -230,7 +182,7 @@
 					}
 				})
 			$.ajax({
-					url: baseUrl + 'biaoqian.php',
+					url: baseUrl + 'interface/biaoqian.php',
 					method: 'post',
 					async: true,
 					data: {
@@ -252,7 +204,7 @@
 					}
 				})
 			$.ajax({
-					url: baseUrl + 'biaoqian.php',
+					url: baseUrl + 'interface/biaoqian.php',
 					method: 'post',
 					async: true,
 					data: {
@@ -276,7 +228,7 @@
 				
 				
 				$.ajax({
-					url: baseUrl + 'biaoqian.php',
+					url: baseUrl + 'interface/biaoqian.php',
 					method: 'post',
 					async: true,
 					data: {
@@ -298,7 +250,7 @@
 					}
 				})
 				$.ajax({
-					url: baseUrl + 'biaoqian.php',
+					url: baseUrl + 'interface/biaoqian.php',
 					method: 'post',
 					async: true,
 					data: {
@@ -320,7 +272,7 @@
 					}
 				})
 				$.ajax({
-					url: baseUrl + 'biaoqian.php',
+					url: baseUrl + 'interface/biaoqian.php',
 					method: 'post',
 					async: true,
 					data: {
@@ -342,7 +294,7 @@
 					}
 				})
 				$.ajax({
-					url: baseUrl + 'biaoqian.php',
+					url: baseUrl + 'interface/biaoqian.php',
 					method: 'post',
 					async: true,
 					data: {

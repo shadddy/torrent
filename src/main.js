@@ -14,7 +14,7 @@ Vue.use(ElementUI)
 Vue.use(VueI18n)
 Vue.config.productionTip = false
 Vue.prototype.downloadFuc=function(url){
-	window.open('http://www.fomifx.com/download/'+url)
+	window.open('http://software.fomifx.com/download/'+url)
 }
 
 const i18n=new VueI18n({

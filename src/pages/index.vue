@@ -66,21 +66,20 @@
 		</div>
 		<!--banner-->
 		<div class="banner-2">
-			<el-carousel height="39vw" ref="carousel" @change="bannerChange()" :autoplay="false">
+			<el-carousel height="39vw" ref="carousel" @change="bannerChange()" :autoplay="false" arrow='never'>
 				<el-carousel-item v-for="(item,index) in bannerList" :key="index">
 					<img :src="item.src" />
 					<div class="content">
 						<h1>{{item.title}}</h1>
 						<h1>{{item.title2}}</h1>
 						<p>{{item.txt}}</p>
-						<!--<span class="downloadBtn">
-							立即下载
-						</span>
-						<img :src="item.wechat" class="wechat"/>-->
-						<span class="downloadBtn" v-for="i in item.btns" @mouseenter="showCode(i.url)" @mouseleave="hideCode">
+						<span class="downloadBtn" v-for="(i,index2) in item.btns" @mouseenter="showCode(i,index,index2)" @mouseleave="hideCode" @click="download(i.download,item.id)">
 							{{i.name}}
 						</span>
-						<img :src="currentCode" class="wechat" v-show="wechatShow" />
+						<div v-for='item2 in item.btns' class="wechat-box" v-show="mobileCurShow==item2.name">
+							<div v-for="item3 in item2.url">
+								<h3>{{item3.txt}}</h3><img :src="item3.src" class="wechat" /></div>
+						</div>
 
 					</div>
 				</el-carousel-item>
@@ -133,6 +132,7 @@
 <script>
 	import header from '@/components/header'
 	import footer from '@/components/footer'
+	import { baseUrl } from '@/config/index'
 	export default {
 		components: {
 			myHeader: header,
@@ -143,28 +143,37 @@
 				itemIndex: 0, //banner图当前索引
 				wechatShow: false,
 				currentCode: require('../../static/img/erweima.png'),
-				bannerActive:1
+				bannerActive: 1,
+				mobileCurShow: '',
 			}
 		},
 		mounted() {
 			$.ajax({
 				type: 'post',
 				url: '/api/interface/qaq.php',
-				data:{
-					language:2
+				data: {
+					language: 2
 				},
 				dataType: 'json',
-				success: function(data) {
-				}
+				success: function(data) {}
 			})
 		},
 		methods: {
-			download(url) {
-				
-				this.downloadFuc(url)
+			download(url, index) {
+
+				if(typeof index != 'undefined') {
+					if(index == 'banner-1' || index == 'banner-2') {
+						this.downloadFuc(url)
+					}
+				} else {
+					this.downloadFuc(url)
+				}
 			},
+
 			Router: function(index, str) {
-				if(index == 1 || index == 9) {
+				if(index == 0) {
+					return
+				} else if(index == 1 || index == 9) {
 					if(str == "" || str == undefined) {
 						return false;
 					}
@@ -181,70 +190,95 @@
 				}
 			},
 			setBannerActive: function(val) {
-				this.bannerActive=val
+				this.bannerActive = val
 				this.$refs.carousel.setActiveItem(val)
 
 			},
 			//改变banner图当前索引
 			bannerChange(index) {
-				
+
 				if(this.itemIndex > 2) {
 					this.itemIndex = -1
 				}
-//				if(this.itemIndex==-1){
-//					this.bannerActive=0
-//				}else{
-//					this.bannerActive=this.itemIndex
-//				}
-//				
 				this.itemIndex++
-				
+
 			},
-			showCode(val) {
-				this.wechatShow = true
-				this.currentCode = val
+			showCode(val, item, item2) {
+				if(item != 0) {
+					if(item == 1) {
+						this.mobileCurShow = val.name
+						console.log(this.mobileCurShow)
+						console.log(val)
+					} else if(item == 2) {
+						this.mobileCurShow = val.name
+					}
+				} else {
+					return
+				}
 			},
 			hideCode() {
-				this.wechatShow = false
+				this.mobileCurShow = ''
 			}
 
 		},
 		computed: {
 			bannerList() {
 				return [{
+					id: 'banner-1',
 					src: require('../../static/img/banner-1.jpg'),
 					title: this.$t('banner.banner1.title'),
 					title2: this.$t('banner.banner1.title2'),
 					txt: this.$t('banner.banner1.txt'),
 					btns: [{
-						name: '扫码下载',
-						url: require('../../static/img/erweima.png')
+						name: '立即下载',
+						url: [require('../../static/img/erweima.png')],
+						download: 'SquirrelBond.apk'
 					}],
-					wechatShow: false
+					wechatShow: false,
+
 				}, {
+					id: 'banner-2',
 					src: require('../../static/img/banner-2.jpg'),
 					title: this.$t('banner.banner2.title'),
 					title2: this.$t('banner.banner2.title2'),
 					txt: this.$t('banner.banner2.txt'),
 					btns: [{
 						name: 'MT4环境下载',
-						url: require('../../static/img/erweima.png')
+						url: [{
+							src: require('../../static/img/download/MobileTrader For Android（MT4）.png'),
+							txt: '安卓手机下载'
+						}, {
+							src: require('../../static/img/download/MobileTrader For IOS（MT4）.png'),
+							txt: '苹果手机下载'
+						}],
+						download: 'FomiFX MT4 For Windows.exe',
+						show: false,
+						txt: '安卓手机下载'
 					}, {
 						name: 'MT5环境下载',
-						url: require('../../static/img/erweima.png')
+						url: [{
+							src: require('../../static/img/download/MobileTrader For Android（MT5）.png'),
+							txt: '安卓手机下载'
+						}, {
+							src: require('../../static/img/download/MobileTrader For IOS（MT5）.png'),
+							txt: '苹果手机下载'
+						}],
+						download: 'FomiFX MT5 For Windows.exe',
+						show: false,
+						txt: '苹果手机下载'
 					}],
 					wechatShow: false
 				}, {
+					id: 'banner-3',
 					src: require('../../static/img/banner-3.jpg'),
 					title: this.$t('banner.banner3.title'),
 					title2: this.$t('banner.banner3.title2'),
 					txt: this.$t('banner.banner3.txt'),
 					btns: [{
 						name: '安卓手机下载',
-						url: require('../../static/img/erweima.png')
-					}, {
-						name: '苹果手机下载',
-						url: require('../../static/img/erweima.png')
+						url: [{
+							src: require('../../static/img/social-code.png')
+						}]
 					}],
 					wechatShow: false
 				}]
@@ -466,11 +500,10 @@
 							color: rgba(0, 0, 0, 0.5);
 						}
 					}
-					div.act{
+					div.act {
 						background: #b61d22;
-						
 					}
-					div.act span{
+					div.act span {
 						color: white;
 					}
 					/*div:hover {
@@ -535,9 +568,32 @@
 						width: 150vw/@w;
 						height: 150vw/@w;
 						display: block;
-						position: absolute;
+						/*position: absolute;
 						right: 0;
-						top: 300vw/@w;
+						top: 300vw/@w;*/
+					}
+					.wechat-box {
+						position: absolute;
+						display: flex;
+						right: -150vw/@w;
+						bottom: 0;
+						div {
+							padding: 5vw/@w;
+							h3 {
+								font-weight: 500;
+								color: white;
+								font-size: 16vw/@w;
+								text-align: center;
+							}
+						}
+					}
+				}
+				.el-carousel__item:nth-of-type(3) {
+					.wechat-box {
+						position: absolute;
+						display: flex;
+						right: 0 !important;
+						bottom: -50vw/@w;
 					}
 				}
 			}
