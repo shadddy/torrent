@@ -8,6 +8,7 @@
 					<h1>{{$t('index.banner1.title')}}</h1>
 					<h2>{{$t('index.banner1.title2')}}</h2>
 					<div class="download" @click='Router(1,"download")'>{{$t('index.banner1.btn')}}</div>
+					<iframe class="iframe" src='https://price.torrentfx.com/?symbols=EURUSD,GBPUSD,USDJPY,USDCAD,EURGBP,GBPAUD,GBPJPY,NZDUSD,USOIL,AUDUSD,XAUUSD,XAGUSD'></iframe>
 				</div>
 			</div>
 		</div>
@@ -17,8 +18,8 @@
 				<div class="custom-item">
 					<div class="left"></div>
 					<div class="right">
-						<h3>自定义界面</h3>
-						<p>可自主进行多个界面和窗口设置，便利操作</p>
+						<h3>{{$t('custom.custom1.title')}}</h3>
+						<p>{{$t('custom.custom1.txt')}}</p>
 					</div>
 
 				</div>
@@ -26,39 +27,39 @@
 				<div class="custom-item">
 					<div class="left"></div>
 					<div class="right">
-						<h3>自定义流程</h3>
-						<p>可自主进行图表、信息、模块及通知设置，符合习惯</p>
+						<h3>{{$t('custom.custom2.title')}}</h3>
+						<p>{{$t('custom.custom2.txt')}}</p>
 					</div>
 				</div>
 
 				<div class="custom-item">
 					<div class="left"></div>
 					<div class="right">
-						<h3>自定义设置</h3>
-						<p>可自主进行订单、数值、风控、预警设置，更加智能</p>
+						<h3>{{$t('custom.custom3.title')}}</h3>
+						<p>{{$t('custom.custom3.txt')}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="container banner-btn">
 				<div class="custom-item-2 " @mouseenter="setBannerActive(0)">
 					<div :class="bannerActive==0?'act':null">
-						<span>松鼠快投APP</span>
-						<span>新手用户首选软件</span>
+						<span>{{$t('banner.banner1.btn1')}}</span>
+						<span>{{$t('banner.banner1.btn2')}}</span>
 					</div>
 
 				</div>
 
 				<div class="custom-item-2" @mouseenter="setBannerActive(1)">
 					<div :class="bannerActive==1?'act':null">
-						<span>手机炒汇理财</span>
-						<span>随身的财富管家</span>
+						<span>{{$t('banner.banner2.btn1')}}</span>
+						<span>{{$t('banner.banner2.btn2')}}</span>
 					</div>
 
 				</div>
 				<div class="custom-item-2" @mouseenter="setBannerActive(2)">
 					<div :class="bannerActive==2?'act':null">
-						<span>智能跟单社区</span>
-						<span>轻松下单轻松投</span>
+						<span>{{$t('banner.banner3.btn1')}}</span>
+						<span>{{$t('banner.banner3.btn2')}}</span>
 					</div>
 
 				</div>
@@ -88,7 +89,7 @@
 		<!--插件设计-->
 		<div class="plugin">
 			<div class="container">
-				<h1>更多简单易用的插件设计</h1>
+				<h1>{{$t('plugin.title')}}</h1>
 				<ul>
 					<li v-for="(item,index) in pluginList" @click="Router(index,item.url)">
 						<img :src="item.img" />
@@ -230,7 +231,7 @@
 					title2: this.$t('banner.banner1.title2'),
 					txt: this.$t('banner.banner1.txt'),
 					btns: [{
-						name: '立即下载',
+						name: this.$t('index.banner1.btn'),
 						url: [require('../../static/img/erweima.png')],
 						download: 'SquirrelBond.apk'
 					}],
@@ -243,29 +244,29 @@
 					title2: this.$t('banner.banner2.title2'),
 					txt: this.$t('banner.banner2.txt'),
 					btns: [{
-						name: 'MT4环境下载',
+						name: this.$t('software_1.first.btn1'),
 						url: [{
 							src: require('../../static/img/download/MobileTrader For Android（MT4）.png'),
-							txt: '安卓手机下载'
+							txt: this.$t('androidDownload')
 						}, {
 							src: require('../../static/img/download/MobileTrader For IOS（MT4）.png'),
-							txt: '苹果手机下载'
+							txt: this.$t('appleDownload')
 						}],
 						download: 'FomiFX MT4 For Windows.exe',
 						show: false,
-						txt: '安卓手机下载'
+						txt: this.$t('androidDownload')
 					}, {
-						name: 'MT5环境下载',
+						name: this.$t('software_1.first.btn2'),
 						url: [{
 							src: require('../../static/img/download/MobileTrader For Android（MT5）.png'),
-							txt: '安卓手机下载'
+							txt: this.$t('androidDownload')
 						}, {
 							src: require('../../static/img/download/MobileTrader For IOS（MT5）.png'),
-							txt: '苹果手机下载'
+							txt: this.$t('appleDownload')
 						}],
 						download: 'FomiFX MT5 For Windows.exe',
 						show: false,
-						txt: '苹果手机下载'
+						txt: this.$t('appleDownload')
 					}],
 					wechatShow: false
 				}, {
@@ -275,7 +276,7 @@
 					title2: this.$t('banner.banner3.title2'),
 					txt: this.$t('banner.banner3.txt'),
 					btns: [{
-						name: '安卓手机下载',
+						name: this.$t('androidDownload'),
 						url: [{
 							src: require('../../static/img/social-code.png')
 						}]
@@ -486,6 +487,7 @@
 						-webkit-transition: .5s;*/
 						width: 230vw/@w;
 						padding: 45vw/@w 0 60vw/@w 0;
+						height: 100%;
 						margin: 0 auto;
 						span {
 							display: block;
@@ -714,7 +716,14 @@
 			}
 		}
 	}
-	
+	.iframe{
+		position: absolute;
+		right: 0;
+		top: -50vw/@w;
+		width: 600vw/@w;
+		border: none;
+		height: 500vw/@w;
+	}
 	@media only screen and (max-width:768px) {
 		.index {
 			.banner-1 {

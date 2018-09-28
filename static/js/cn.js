@@ -1,4 +1,6 @@
 module.exports={
+	appleDownload:'苹果手机下载',
+	androidDownload:'安卓手机下载',
 	header:{
 		nav_top:{
 			nav1:'软件',
@@ -18,16 +20,22 @@ module.exports={
 	more:'查看更多',
 	banner:{
 		banner1:{
+			btn1:'松鼠快投APP',
+			btn2:'新手用户首选软件',
 			title:'Squirrel Bonds 1.0',
 			title2:'试用版火爆上线',
 			txt:'指尖上的投资利器，适合新手及年轻人的APP，严选多种情绪交易分析，一键快速下单，更简单更智能，投资客的社区，自己发声。'
 		},
 		banner2:{
+			btn1:'手机炒汇理财',
+			btn2:'随身的财富管家',
 			title:'Mobile-Trader V5.1',
 			title2:'震撼发布',
 			txt:'手机理财看盘，便捷的投资利器，适用于Android及IOS系统，特色功能，行情信息早知道，一键账户收益计算，更智能大数据严选，情绪指数，帮助决策。'
 		},
 		banner3:{
+			btn1:'智能跟单社区',
+			btn2:'轻松下单轻松投',
 			title:'Socialtrading Plus',
 			title2:'跟单利器',
 			txt:'20000余跟单信号资源，10 多年全球历史投资数据，多账户绑定，同步策略信号，采用交易安全卫士PosiGuard，支持自动跟单和反向跟单。'
@@ -40,7 +48,22 @@ module.exports={
 			btn:'立即下载'
 		}
 	},
+	custom:{
+		custom1:{
+			title:'自定义界面',
+			txt:'可自主进行多个界面和窗口设置，便利操作'
+		},
+		custom2:{
+			title:'自定义流程',
+			txt:'可自主进行图表、信息、模块及通知设置，符合习惯'
+		},
+		custom3:{
+			title:'自定义设置',
+			txt:'可自主进行订单、数值、风控、预警设置，更加智能'
+		}
+	},
 	plugin:{
+		title:'更多简单易用的插件设计',
 		p1:{
 			title:'进阶指南',
 			txt:'多种技术插件应用'

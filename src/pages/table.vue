@@ -14,7 +14,7 @@
 		<div class="part-1">
 			<div class="container">
 				<h3>{{$t('table.part2.title')}}</h3>
-				<table>
+				<!--<table>
 					<tr>
 						<th>{{$t('table.part2.coinCom')}}</th>
 						<th>{{$t('table.part2.buyIn')}}</th>
@@ -27,7 +27,8 @@
 						</td>
 					</tr>
 
-				</table>
+				</table>-->
+				<iframe class="iframe" src='https://price.torrentfx.com/?symbols=EURUSD,GBPUSD,USDJPY,USDCAD,EURGBP,GBPAUD,GBPJPY,NZDUSD,USOIL,AUDUSD,XAUUSD,XAGUSD'></iframe>
 				<span class="btn" @click="more">{{$t('more')}}</span>
 			</div>
 		</div>
@@ -76,6 +77,11 @@
 
 <style scoped lang="less">
 	@w: 19.2;
+	.iframe{
+		border:none;
+		width: 100%;
+		height: 500px;
+	}
 	.table {
 		.banner-1 {
 			background: url(../../static/img/table/banner1.jpg) center no-repeat;

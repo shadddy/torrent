@@ -439,13 +439,15 @@
 				justify-content: space-between;
 				li {
 					img {
-						width: 100%;
+						width: 100vw/@w;
+						display: block;
+						margin: 0 auto;
 					}
 					p {
 						margin-top: 35vw/@w;
 						text-align: center;
 						color: white;
-						font-size: 34vw/@w;
+						font-size: 30vw/@w;
 					}
 				}
 			}

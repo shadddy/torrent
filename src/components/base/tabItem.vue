@@ -5,13 +5,13 @@
 				<div class="left-wrap">
 					<div>
 						<h3>Fomifx{{$t('guide.part2.service')}}</h3>
-						<h6>24小时为您服务</h6>
-						<span @click="toQ(2093003828)">使用咨询</span>
+						<h6>{{$t('guide.part2.service2')}}</h6>
+						<span @click="toQ(2093003828)">{{$t('guide.part2.btn1')}}</span>
 					</div>
 					<div>
-						<h3>技术研发部</h3>
-						<h6>专注产品定制升级</h6>
-						<span @click="toQ(2063317281)">技术咨询</span>
+						<h3>{{$t('guide.part2.tech')}}</h3>
+						<h6>{{$t('guide.part2.tech2')}}</h6>
+						<span @click="toQ(2063317281)">{{$t('guide.part2.btn2')}}</span>
 					</div>
 				</div>
 			</div>

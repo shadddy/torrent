@@ -39,6 +39,7 @@
 						font-size: 34vw/@w;
 						color: #CCCCCC;
 						font-weight: 500;
+						width: 800vw/@w;
 					}
 					.btnBox {
 						margin-top: 80vw/@w;

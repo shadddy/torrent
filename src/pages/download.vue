@@ -28,7 +28,7 @@
 						</li>
 						<li>
 							<span class="icon icon-3"></span>
-							<span class="link">{{$t('download.part2.txt3.txt1')}}</span>
+							<span class="link" @click="download('FomiFX MT4下载安装说明-IOS版.pdf')">{{$t('download.part2.txt3.txt1')}}</span>
 							<span class="link">{{$t('download.part2.txt3.txt2')}}</span>
 							<span class="link">{{$t('download.part2.txt3.txt3')}}</span>
 						</li>
@@ -59,7 +59,7 @@
 						</li>
 						<li>
 							<span class="icon icon-3"></span>
-							<span class="link">{{$t('download.part3.txt3.txt1')}}</span>
+							<span class="link"  @click="download('FomiFX MT4 手机版使用说明（IOS版）.pdf')">{{$t('download.part3.txt3.txt1')}}</span>
 							<span class="link">{{$t('download.part3.txt3.txt2')}}</span>
 							<span class="link">{{$t('download.part3.txt3.txt3')}}</span>
 						</li>
@@ -229,13 +229,15 @@
 				justify-content: space-between;
 				li {
 					img {
-						width: 100%;
+						width: 100vw/@w;
+						display: block;
+						margin: 0 auto;
 					}
 					p {
 						margin-top: 35vw/@w;
 						text-align: center;
 						color: white;
-						font-size: 34vw/@w;
+						font-size: 30vw/@w;
 					}
 				}
 			}

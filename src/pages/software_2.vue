@@ -29,7 +29,7 @@
 		</div>
 		<div class="banner-3">
 			<div class="container">
-				<h1>{{$t('software_1.third.title')}}</h1>
+				<h1>{{$t('software_2.third.title')}}</h1>
 				<ul>
 					<li v-for="(item,index) in banner3List"> 
 						<span>0{{index+1}}</span>
@@ -123,9 +123,11 @@
 				}
 				h3{
 					font-size: 30vw/@w;
+					max-width: 400vw/@w;
 				}
 				p{
 					font-size: 14vw/@w;
+					max-width: 400vw/@w;
 				}
 			}
 			li:nth-of-type(1){

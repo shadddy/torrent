@@ -148,7 +148,7 @@
 			},
 			banner2List() {
 				return [{
-					val: 10 + '万',
+					val: 100000,
 					txt: this.$t('about.banner2.txt1')
 				}, {
 					val: 110,

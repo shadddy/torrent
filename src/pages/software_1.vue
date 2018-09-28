@@ -136,6 +136,7 @@
 					margin-top: 10vw/@w;
 					font-size: 14vw/@w;
 					color: #999;
+					max-width: 400vw/@w;
 				}
 			}
 		}
