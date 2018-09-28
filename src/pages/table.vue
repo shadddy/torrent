@@ -6,8 +6,8 @@
 				<h1>{{$t('table.part1.title')}}</h1>
 				<p>{{$t('table.part1.title2')}}</p>
 				<div class="btn-box">
-					<span>{{$t('table.part1.btn1')}}</span>
-					<span>{{$t('table.part1.btn2')}}</span>
+					<span @click="Router('download')">{{$t('table.part1.btn1')}}</span>
+					<span @click="register">{{$t('table.part1.btn2')}}</span>
 				</div>
 			</div>
 		</div>
@@ -47,6 +47,12 @@
 		methods:{
 			more(){
 				window.location.href='https://price.torrentfx.com/?symbols=EURUSD,GBPUSD,USDJPY,USDCAD,EURGBP,GBPAUD,GBPJPY,NZDUSD,USOIL,AUDUSD,XAUUSD,XAGUSD'
+			},
+			Router(url){
+				this.$router.push('/'+url)
+			},
+			register(){
+				window.location.href="http://my.fomifx.com/zh/Forms/LiveAccount"
 			}
 		},
 		computed: {
@@ -145,6 +151,7 @@
 				h3 {
 					text-align: center;
 					padding: 135vw/@w 0 50vw/@w 0;
+					font-size: 30vw/@w;
 				}
 				table {
 					width: 100%;

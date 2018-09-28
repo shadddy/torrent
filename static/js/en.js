@@ -397,5 +397,40 @@ module.exports = {
 			}]
 		}
 	},
+	
+	//点差页
+	table:{
+		part1:{
+			title:'Lowest transaction cost industry',
+			title2:'0 spread (from) to help you improve trading profit',
+			btn1:'Download',
+			btn2:'Register'
+		},
+		part2:{
+			title:'Annunciator',
+			coinCom:'货币对',
+			buyIn:'买价',
+			saleOut:'卖价',
+			diff:'差点',
+			euro:'欧元',
+			dollar:'美元',
+			pound:'英镑'
+		}
+	},
+	//情绪大数据
+	bigdata:{
+		banner:{
+			title:'Sentiment big data',
+			title2:'Open and close decisions analysis based on big data'
+		},
+		charts:{
+			title1:'欧元美元EURUSD',
+			title2:'黄金XAUUSD',
+			title3:'磅加GBPCAD',
+			title4:'澳加AUDCAD',
+			title5:'美油USOIL',
+			title6:'澳纽AUDNZD'
+		}
+	}
 
 }
