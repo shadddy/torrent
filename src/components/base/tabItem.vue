@@ -152,6 +152,14 @@
 						}
 					}
 				}
+				.left-wrap{
+					h3{
+						font-size: 14px;
+					}
+					span{
+						width: 60%;
+					}
+				}
 			}
 		}
 	}

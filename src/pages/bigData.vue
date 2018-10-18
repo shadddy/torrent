@@ -186,6 +186,7 @@
 					font-size: 20px;
 				}
 				.content{
+					margin-top: 60px;
 					ul{
 						li{
 							width: 100%;
@@ -193,6 +194,23 @@
 						}
 					}
 				}
+			}
+			.banner{
+				.content{
+					margin: 12px auto;
+					h1{
+						font-size: 20px;
+					}
+					p{
+						font-size: 10px;
+					}
+					.btn-box{
+					span{
+						font-size: 8px;
+					}
+				}
+				}
+				
 			}
 		}
 	}

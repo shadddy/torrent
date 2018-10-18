@@ -26,12 +26,15 @@ p,h1,h2,h3,h4,h5,h6,ul{
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
      -webkit-padding-start:0px;
+     margin: 0;
+     padding: 0;
 }
 .el-tabs__nav-wrap::after{
 		background-color: transparent;
 	}
 li{
 	list-style: none;
+	margin: 0;
 }
 #app {
   font-family: "microsoft yahei";

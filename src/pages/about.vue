@@ -50,7 +50,7 @@
 						<h3>{{$t('about.step.title1')}}</h3>
 						<p>{{$t('about.step.txt1')}}</p>
 					</li>
-					<li>
+					<li class="arrow">
 						<img :src="arrow" />
 					</li>
 					<li class="content">
@@ -58,7 +58,7 @@
 						<h3>{{$t('about.step.title2')}}</h3>
 						<p>{{$t('about.step.txt2')}}</p>
 					</li>
-					<li>
+					<li class="arrow">
 						<img :src="arrow" />
 					</li>
 					<li class="content">
@@ -377,8 +377,13 @@
 							font-size: 20px;
 						}
 						p {
-							font-size: 12px;
+							font-size: 10px;
 							line-height: 16px;
+						}
+						.btn-box{
+							span{
+								font-size: 12px;
+							}
 						}
 					}
 				}
@@ -392,6 +397,12 @@
 					ul {
 						li {
 							width: 50%;
+							img{
+								width: 40%;
+							}
+							h4{
+								margin: 5px 0 10px 0;
+							}
 						}
 					}
 				}
@@ -429,12 +440,14 @@
 			.step{
 				.container{
 					h1{
+						
 						font-size: 20px;
 						font-weight: bold;
 					}
 					ul{
 						
 							.content{
+								width: 80px;
 								h2{
 									font-size: 20px;
 								}
@@ -445,7 +458,18 @@
 									font-size: 12px;
 								}
 							}
+							.arrow{
+								width: 30px;
+								img{
+									width: 30px;
+								}
+							}
 						
+					}
+					.btn-box{
+						span{
+							font-size: 14px;
+						}
 					}
 				}
 			}

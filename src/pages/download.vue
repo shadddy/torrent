@@ -285,6 +285,7 @@
 		margin-right: 20vw/@w;
 		width: 22px;
 		height: 22px;
+		
 	}
 	
 	.link {
@@ -412,6 +413,25 @@
 	}
 	
 	@media only screen and (max-width: 768px) {
+		.part-1{
+			.content{
+				padding-top: 20px;
+				width:200px;
+				h1{
+					font-size: 20px;
+				}
+				ul{
+					li{
+						img{
+							width: 50px;
+						}
+						p{
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
 		.part-2,
 		.part-3,
 		.part-4,
@@ -439,10 +459,58 @@
 			position: relative;
 			top: 0;
 			.btn {
-				width: 100px;
+				width: 120px;
 				height: 25px;
 				line-height: 25px;
-				margin: 0 auto;
+				margin: 5px auto;
+				font-size: 12px;
+			}
+		}
+		.content_left{
+			h1{
+				font-size: 20px;
+			}
+			p{
+				font-size: 10px;
+			}
+			.icon{
+				width: 16px;
+				height: 16px;
+				background-size:100% 100%;
+			}
+			ul{
+				li{
+					span{
+						font-size: 10px;
+					}
+				}
+			}
+			
+		}
+		.content_right{
+			h1{
+				font-size: 18px;
+				max-width: 150px;
+			}
+			p{
+				font-size: 10px;
+			}
+			.icon{
+				width: 16px;
+				height: 16px;
+				background-size:100% 100%;
+			}
+			ul{
+				li{
+					span{
+						font-size: 10px;
+					}
+				}
+			}
+		}
+		.part-3{
+			.content_right{
+				width: 100%;
 			}
 		}
 	}

@@ -75,7 +75,7 @@
 					strs = '';
 				}
 				this.$router.push('/' + strs);
-
+				$(".navbar>ul").slideUp()
 			},
 			func() {
 				this.$router.push('/')
@@ -172,8 +172,9 @@
 		border-bottom: 1px solid #ccc;
 		.container {
 			.logo {
+				margin-bottom:0;
 				margin-top: 20px;
-				width: 116px;
+				width: 148px;
 				height: 36px;
 				display: inline-block;
 				cursor: pointer;
@@ -183,12 +184,15 @@
 				}
 			}
 			.right {
-				margin-top: 10px;
+				/*margin-top: 10px;*/
 				display: flex;
+				display: -ms-flexbox;
 				float: right;
 				ul {
+					margin: 0;
 					position: relative;
 					display: flex;
+					display: -ms-flexbox;
 					li {
 						transition: .5s;
 						-moz-transition: .5s;
@@ -204,6 +208,7 @@
 							width: 60%;
 							left: 5px;
 							top: 60px;
+							padding:0;
 							li {
 								text-align: center;
 								display: block;

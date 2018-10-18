@@ -129,5 +129,31 @@
 			}
 		}
 	}
+	@media only screen and (max-width:768px){
+		.software{
+			.banner-1{
+				.container{
+					.content{
+						padding-left: 10px;
+						h1{
+							font-size: 20px;
+						}
+						.btnBox{
+							span{
+								font-size: 8px;
+							}
+						}
+					}
+				}
+			}
+			.banner-3{
+				.container{
+					.btn{
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
 	
 </style>

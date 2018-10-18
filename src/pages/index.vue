@@ -8,8 +8,9 @@
 					<h1>{{$t('index.banner1.title')}}</h1>
 					<h2>{{$t('index.banner1.title2')}}</h2>
 					<div class="download" @click='Router(1,"download")'>{{$t('index.banner1.btn')}}</div>
-					<iframe class="iframe" src='https://price.torrentfx.com/?symbols=EURUSD,GBPUSD,USDJPY,USDCAD,EURGBP,GBPAUD,GBPJPY,NZDUSD,USOIL,AUDUSD,XAUUSD,XAGUSD'></iframe>
+					
 				</div>
+				<iframe class="iframe" src='https://price.torrentfx.com/?symbols=EURUSD,GBPUSD,USDJPY,USDCAD,EURGBP,GBPAUD,GBPJPY,NZDUSD,USOIL,AUDUSD,XAUUSD,XAGUSD'></iframe>
 			</div>
 		</div>
 		<!--自定义-->
@@ -41,7 +42,7 @@
 				</div>
 			</div>
 			<div class="container banner-btn">
-				<div class="custom-item-2 " @mouseenter="setBannerActive(0)">
+				<div class="custom-item-2 " @mouseover="setBannerActive(0)">
 					<div :class="bannerActive==0?'act':null">
 						<span>{{$t('banner.banner1.btn1')}}</span>
 						<span>{{$t('banner.banner1.btn2')}}</span>
@@ -49,14 +50,14 @@
 
 				</div>
 
-				<div class="custom-item-2" @mouseenter="setBannerActive(1)">
+				<div class="custom-item-2" @mouseover="setBannerActive(1)">
 					<div :class="bannerActive==1?'act':null">
 						<span>{{$t('banner.banner2.btn1')}}</span>
 						<span>{{$t('banner.banner2.btn2')}}</span>
 					</div>
 
 				</div>
-				<div class="custom-item-2" @mouseenter="setBannerActive(2)">
+				<div class="custom-item-2" @mouseover="setBannerActive(2)">
 					<div :class="bannerActive==2?'act':null">
 						<span>{{$t('banner.banner3.btn1')}}</span>
 						<span>{{$t('banner.banner3.btn2')}}</span>
@@ -67,7 +68,7 @@
 		</div>
 		<!--banner-->
 		<div class="banner-2">
-			<el-carousel height="39vw" ref="carousel" @change="bannerChange()" :autoplay="false" arrow='never'>
+			<el-carousel height="40vw" ref="carousel" @change="bannerChange()" :autoplay="false" arrow='never' indicator-position="none">
 				<el-carousel-item v-for="(item,index) in bannerList" :key="index">
 					<img :src="item.src" />
 					<div class="content">
@@ -399,6 +400,7 @@
 			background-size: 100% 100%;
 			padding-top: 270vw/@w;
 			.content {
+				position: relative;
 				width: 500vw/@w;
 				h1 {
 					font-size: 54vw/@w;
@@ -451,6 +453,7 @@
 						background-image: url(../../static/img/icon-1.png);
 						background-position: center;
 						background-repeat: no-repeat;
+						background-size: 60% 50%;
 						margin-right: 20px;
 					}
 					.right {
@@ -744,10 +747,48 @@
 						line-height: 20px;
 					}
 				}
+				.iframe{
+				transform: scale(0.33);
+				transform-origin: top;
+				right: 20px;
+				width: 200px;
+				top: -30px;
+			}
 			}
 			.custom {
 				.container {
-					.custom-item {}
+					
+					.custom-item {
+						
+						margin: 5px auto;
+						.left{
+							width: 60px;
+						height: 60px;
+						}
+						.right{
+							width: 220px;
+							p{
+								margin-top: 0;
+							}
+						}
+					}
+				}
+				.container:nth-of-type(1){
+					
+					flex-direction: column;
+					.custom-item{
+						justify-content: center;
+					}
+				}
+				.container:nth-of-type(2){
+					.custom-item-2{
+						div{
+							width: 100%;
+							span:nth-of-type(1),span:nth-of-type(2){
+								font-size: 10px;
+							}
+						}
+					}
 				}
 			}
 			.banner-2 {
@@ -757,11 +798,13 @@
 						top: 10px;
 						max-width: 190px;
 						p {
+							width: 170px;
 							font-size: 10px;
 							margin-top: 0;
 						}
 						.downloadBtn {
 							margin-top: 5px;
+							font-size: 8px;
 						}
 					}
 				}
@@ -774,15 +817,31 @@
 					ul {
 						li {
 							width: 50%;
+							img{
+								width: 30px;
+								height: 30px;
+							}
+							h3{
+								font-size:14px;
+							}
+							p{
+								font-size: 8px;
+							}
 						}
 					}
 				}
 			}
 			.iMac {
+				height: 230px;
+				background-position: 10px 0;
 				.container {
 					.content {
 						margin-top: 5px;
 						width: 300px;
+						h6{
+							font-size: 10px;
+							width: 200px;
+						}
 						ul {
 							li {
 								line-height: 16px;
@@ -800,10 +859,14 @@
 					ul {
 						li {
 							width: 50%;
+							img{
+								width: 40%;
+							}
 						}
 					}
 				}
 			}
+			
 		}
 	}
 	
@@ -811,9 +874,7 @@
 		.index {
 			.custom {
 				.container {
-					.custom-item {
-						width: 100%;
-					}
+					
 				}
 			}
 		}

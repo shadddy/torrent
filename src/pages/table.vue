@@ -201,4 +201,37 @@
 			}
 		}
 	}
+	@media only screen and (max-width: 768px){
+		.table{
+			.banner-1{
+				.content{
+					margin: 12px auto;
+					h1{
+						font-size: 20px;
+					}
+					p{
+						font-size: 10px;
+					}
+					.btn-box{
+					span{
+						font-size: 8px;
+					}
+				}
+				}
+			}
+			.part-1{
+				.container{
+					h3{
+						font-size: 20px;
+					}
+					.btn{
+						font-size: 14px;
+						line-height: 30px;
+						width: 120px;
+						height: 30px;
+					}
+				}
+			}
+		}
+	}
 </style>

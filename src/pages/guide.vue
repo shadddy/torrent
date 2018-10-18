@@ -482,4 +482,32 @@
 			}
 		}
 	}
+	@media only screen and (max-width: 768px){
+		.part-1{
+			.content{
+				padding-top: 20px;
+				width:200px;
+				h1{
+					font-size: 20px;
+				}
+				ul{
+					li{
+						img{
+							width: 50px;
+						}
+						p{
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
+		.part-2{
+			.container{
+				h1{
+					font-size: 20px;
+				}
+			}
+		}
+	}
 </style>

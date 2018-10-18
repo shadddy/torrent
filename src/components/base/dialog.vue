@@ -88,10 +88,8 @@
 	@media only screen and (max-width:768px){
 		.dialog-wrap{
 			.dialog-content{
-				width: 100%;
-				top: 0;
-				left: 0;
-				height: 100%;
+				width: 90%;
+				
 				max-width: none;
 				max-height: none;
 				margin-left: 0;
@@ -102,7 +100,7 @@
 				right: 15px;
 				top: 10px;
 				cursor: pointer;
-				color: white;
+				color: black;
 				font-size: 24px;
 			}
 		}

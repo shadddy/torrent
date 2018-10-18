@@ -166,12 +166,26 @@
 						display: flex;
 						flex-wrap: wrap;
 						justify-content: space-between;
-						li {
-							position: relative;
-							width: 48%;
-							left: auto;
-							top: auto;
+						img{
+						width: 40px;
+						height: 40px;
+					}
+					li{
+						position: relative;
+						width: 48%;
+					
+						left: auto;
+						top: auto;
+						h3{
+							max-width: 100%;
+							font-size: 14px;
 						}
+						p{
+							max-width: 90%;
+							font-size: 8px;
+							margin: 0 auto;
+						}
+					}
 					}
 				}
 			}

@@ -190,6 +190,26 @@
 				padding: 20px;
 				position: relative;
 				top: 0;
+				ul{
+					li{
+						justify-content: center;
+
+
+						img{
+							width: 50px;
+							height: 50px;
+						}
+						h3{
+							margin-left: 20px;
+							font-size: 16px;
+						}
+						p{
+							margin-left: 20px;
+							font-size: 10px;
+							max-width: 160px;
+						}
+					}
+				}
 			}
 		}
 	}
