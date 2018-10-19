@@ -64,7 +64,7 @@
 							<span class="link">{{$t('download.part3.txt3.txt3')}}</span>
 						</li>
 					</ul>
-					<div class="btn" @mouseenter="mobileShowCode1" @mouseleave="mobileHideCode" @click="download('FomiFX MT4 For Windows.exe')">
+					<div class="btn" @mouseenter="mobileShowCode1" @mouseleave="mobileHideCode" @click="download('net.metaquotes.metatrader4_400.1102_1102.apk')">
 						{{$t('download.part1.btn1')}}
 					</div>
 					<div class="btn" @mouseenter="mobileShowCode2" @mouseleave="mobileHideCode" @click="download('FomiFX MT5 For Windows.exe')">
